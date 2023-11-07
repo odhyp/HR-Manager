@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 import time
 
 
@@ -31,3 +32,19 @@ class DriverBot:
         time.sleep(1)
 
         print("Login success")
+
+    def rekap_presensi(self):
+        bot = self.bot
+        bot.get("https://presensi2.jogjaprov.go.id/lap-pres/rekap/?menu_id=15")
+
+        tanggal_mulai = bot.find_element(By.NAME, "tanggal_mulai")
+        tanggal_selesai = bot.find_element(By.NAME, "tanggal_selesai")
+        tanggal_mulai.send_keys("2023-10-01")
+        tanggal_selesai.send_keys("2023-10-31")
+        find_export_mode = bot.find_element(By.ID, 'fatih')
+        select_export_mode = Select(find_export_mode)
+        select_export_mode.select_by_value("excel")
+        submit = bot.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+        submit.click()
+
+        print("File downloaded")
