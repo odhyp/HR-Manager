@@ -21,8 +21,11 @@ class DriverBot:
 
         time.sleep(1)
 
+        # Elements
         username = bot.find_element(By.NAME, 'username')
         password = bot.find_element(By.NAME, 'password')
+
+        # Actions
         username.clear()
         password.clear()
         username.send_keys(self.username)
@@ -37,14 +40,16 @@ class DriverBot:
         bot = self.bot
         bot.get("https://presensi2.jogjaprov.go.id/lap-pres/rekap/?menu_id=15")
 
+        # Elements
         tanggal_mulai = bot.find_element(By.NAME, "tanggal_mulai")
         tanggal_selesai = bot.find_element(By.NAME, "tanggal_selesai")
-        tanggal_mulai.send_keys("2023-10-01")
-        tanggal_selesai.send_keys("2023-10-31")
-        find_export_mode = bot.find_element(By.ID, 'fatih')
-        select_export_mode = Select(find_export_mode)
-        select_export_mode.select_by_value("excel")
+        export_mode = bot.find_element(By.ID, 'fatih')
         submit = bot.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+
+        # Actions
+        tanggal_mulai.send_keys("2023-11-01")
+        tanggal_selesai.send_keys("2023-11-07")
+        Select(export_mode).select_by_value("excel")
         submit.click()
 
         print("File downloaded")
