@@ -53,3 +53,19 @@ class DriverBot:
         submit.click()
 
         print("File downloaded")
+
+    def rekap_prestasi(self):
+        bot = self.bot
+        bot.get("https://presensi2.jogjaprov.go.id/lap-pres/prestasi/?menu_id=16")
+
+        # Elements
+        bulan = bot.find_element(By.NAME, "bulan")
+        export_mode = bot.find_element(By.ID, 'fatih')
+        submit = bot.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+
+        # Actions
+        bulan.send_keys("11/2023")
+        Select(export_mode).select_by_value("excel")
+        submit.click()
+
+        print("File downloaded")
