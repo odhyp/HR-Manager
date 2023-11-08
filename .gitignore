@@ -5,6 +5,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Sensitive data
+password.txt
+
 # Distribution / packaging
 .Python
 downloads/
