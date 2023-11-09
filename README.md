@@ -1,3 +1,3 @@
 # Welcome to HRM
 
-HRM (Human Resource Manager) is my Python project that assists with my daily office work in human resources. HRM helps reduce work-time for certain repetitive tasks through automation
+HRM (Human Resource Manager) is my Python project that supports my daily office HR tasks. It effectively reduces work time by automating specific repetitive tasks such as downloading reports, cleaning data, and formatting data into print-out ready reports. This automation streamlines these processes, allowing me to concentrate on strategic HR initiatives and other essential responsibilities.
