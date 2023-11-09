@@ -19,7 +19,7 @@ class DriverBot:
     def wait(self):
         return WebDriverWait(self.bot, 10)
 
-    def login_presensi(self):
+    def login(self):
         bot = self.bot
         bot.maximize_window()
         bot.get('https://presensi2.jogjaprov.go.id/')
