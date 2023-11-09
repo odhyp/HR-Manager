@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
 
 class DriverBot:
@@ -19,8 +21,6 @@ class DriverBot:
         bot.maximize_window()
         bot.get('https://presensi2.jogjaprov.go.id/')
 
-        time.sleep(1)
-
         # Elements
         username = bot.find_element(By.NAME, 'username')
         password = bot.find_element(By.NAME, 'password')
@@ -31,8 +31,6 @@ class DriverBot:
         username.send_keys(self.username)
         password.send_keys(self.password)
         password.send_keys(Keys.RETURN)
-
-        time.sleep(1)
 
         print("Login success")
 
