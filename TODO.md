@@ -12,5 +12,8 @@ A simple to-do list to track the progress of the Human Resource Manager.
 ### In Progress
 
 - [ ] Fix file download error (add wait method)
+- [ ] Add WebDriverWait for rekap_presensi() and rekap_prestasi()
 
 ### Done ✓
+
+- [x] Add WebDriverWait for login()
