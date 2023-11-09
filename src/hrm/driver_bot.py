@@ -16,6 +16,9 @@ class DriverBot:
     def quit(self):
         self.bot.quit()
 
+    def wait(self):
+        return WebDriverWait(self.bot, 10)
+
     def login_presensi(self):
         bot = self.bot
         bot.maximize_window()
