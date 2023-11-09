@@ -24,6 +24,12 @@ class DriverBot:
         bot.maximize_window()
         bot.get('https://presensi2.jogjaprov.go.id/')
 
+        try:
+            self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "form-group")))
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
+
         # Elements
         username = bot.find_element(By.NAME, 'username')
         password = bot.find_element(By.NAME, 'password')
@@ -34,6 +40,13 @@ class DriverBot:
         username.send_keys(self.username)
         password.send_keys(self.password)
         password.send_keys(Keys.RETURN)
+
+        try:
+            self.wait.until(EC.presence_of_element_located((By.ID, "mainnav-menu")))
+            print("found mainnav-menu")
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
 
         print("Login success")
 
