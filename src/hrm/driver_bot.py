@@ -37,7 +37,7 @@ class DriverBot:
         bot.get('https://presensi2.jogjaprov.go.id/')
 
         try:
-            self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "form-group")))
+            self.wait().until(EC.presence_of_element_located((By.CLASS_NAME, "form-group")))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -54,7 +54,7 @@ class DriverBot:
         password_form.send_keys(Keys.RETURN)
 
         try:
-            self.wait.until(EC.presence_of_element_located((By.ID, "mainnav-menu")))
+            self.wait().until(EC.presence_of_element_located((By.ID, "mainnav-menu")))
             print("found mainnav-menu")
         except NoSuchElementException:
             print(NoSuchElementException)
