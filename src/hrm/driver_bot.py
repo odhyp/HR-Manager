@@ -10,9 +10,7 @@ from utils import get_password_path
 
 
 class DriverBot:
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
+    def __init__(self):
         self.bot = webdriver.Chrome()
 
     def get_username(self):
@@ -32,6 +30,8 @@ class DriverBot:
         return WebDriverWait(self.bot, 10)
 
     def login(self):
+        username = self.get_username()
+        password = self.get_password()
         bot = self.bot
         bot.maximize_window()
         bot.get('https://presensi2.jogjaprov.go.id/')
