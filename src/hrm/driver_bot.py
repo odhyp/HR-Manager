@@ -6,12 +6,24 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
+from utils import get_password_path
+
 
 class DriverBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
         self.bot = webdriver.Chrome()
+
+    def get_username(self):
+        with open(get_password_path()) as f:
+            username = f.readlines()[0].strip()
+            return str(username)
+
+    def get_password(self):
+        with open(get_password_path()) as f:
+            password = f.readlines()[1].strip()
+            return str(password)
 
     def quit(self):
         self.bot.quit()
