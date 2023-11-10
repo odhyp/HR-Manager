@@ -1,13 +1,13 @@
 from pathlib import Path
 
 
-path_current = Path().absolute()
-path_root = Path(path_current).parents[1]
-path_pass = Path(path_root).joinpath('password.txt')
+def get_root_path():
+    current_path = Path().absolute()
+    root_path = Path(current_path).parents[1]
+    return root_path
 
-with open(path_pass) as f:
-    username = f.readlines(1)[0].strip()
-    password = f.readlines(2)[0].strip()
 
-print(username)
-print(password)
+def get_password_path():
+    root_path = get_root_path()
+    password_path = Path(root_path).joinpath('password.txt')
+    return password_path
