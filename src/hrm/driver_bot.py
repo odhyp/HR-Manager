@@ -43,15 +43,15 @@ class DriverBot:
             self.quit()
 
         # Elements
-        username = bot.find_element(By.NAME, 'username')
-        password = bot.find_element(By.NAME, 'password')
+        username_form = bot.find_element(By.NAME, 'username')
+        password_form = bot.find_element(By.NAME, 'password')
 
         # Actions
-        username.clear()
-        password.clear()
-        username.send_keys(self.username)
-        password.send_keys(self.password)
-        password.send_keys(Keys.RETURN)
+        username_form.clear()
+        password_form.clear()
+        username_form.send_keys(username)
+        password_form.send_keys(password)
+        password_form.send_keys(Keys.RETURN)
 
         try:
             self.wait.until(EC.presence_of_element_located((By.ID, "mainnav-menu")))
