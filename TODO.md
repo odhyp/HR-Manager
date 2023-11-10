@@ -6,14 +6,14 @@ A simple to-do list to track the progress of the Human Resource Manager.
 
 - [ ] Add file manager (rename, move, etc)
 - [ ] Add excel format
-- [ ] Wrap utils function in getters and setters
-- [ ] Replace parameters using getters and setters
 
 ### In Progress
 
-- [ ] Fix file download error (add wait method)
+- [ ] Fix file download error (browser doesn't wait until file is finished downloading)
 - [ ] Add WebDriverWait for rekap_presensi() and rekap_prestasi()
 
 ### Done ✓
 
 - [x] Add WebDriverWait for login()
+- [x] Wrap utils function in getters and setters
+- [x] Replace parameters using getters and setters
