@@ -23,3 +23,7 @@ def get_admin_password():
     with open(get_password_path()) as f:
         password = f.readlines()[1].strip()
         return str(password)
+
+
+def get_download_path():
+    return Path(Path.home(), "Downloads")
