@@ -9,5 +9,5 @@ def get_root_path():
 
 def get_password_path():
     root_path = get_root_path()
-    password_path = Path(root_path).joinpath('password.txt')
+    password_path = Path(root_path, 'password.txt')
     return password_path
