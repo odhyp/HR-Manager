@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 from utils import get_password_path
 
 
-class DriverBot:
+class DriverPresensi:
     def __init__(self):
         self.bot = webdriver.Chrome()
 
