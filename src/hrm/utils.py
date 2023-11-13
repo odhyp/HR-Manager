@@ -13,6 +13,10 @@ def get_password_path():
     return password_path
 
 
+def get_download_path():
+    return Path(Path.home(), "Downloads")
+
+
 def get_username():
     with open(get_password_path()) as f:
         username = f.readlines()[0].strip()
@@ -23,7 +27,3 @@ def get_password():
     with open(get_password_path()) as f:
         password = f.readlines()[1].strip()
         return str(password)
-
-
-def get_download_path():
-    return Path(Path.home(), "Downloads")
