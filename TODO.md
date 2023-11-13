@@ -6,11 +6,12 @@ A simple to-do list to track the progress of the Human Resource Manager.
 
 - [ ] Add file manager (rename, move, etc)
 - [ ] Add excel format
+- [ ] Fix file download error (browser doesn't wait until file is finished downloading)
+- [ ] Add WebDriverWait for rekap_presensi() and rekap_prestasi()
 
 ### In Progress
 
-- [ ] Fix file download error (browser doesn't wait until file is finished downloading)
-- [ ] Add WebDriverWait for rekap_presensi() and rekap_prestasi()
+- [ ] Project Restructure
 
 ### Done ✓
 
