@@ -13,13 +13,13 @@ def get_password_path():
     return password_path
 
 
-def get_admin_username():
+def get_username():
     with open(get_password_path()) as f:
         username = f.readlines()[0].strip()
         return str(username)
 
 
-def get_admin_password():
+def get_password():
     with open(get_password_path()) as f:
         password = f.readlines()[1].strip()
         return str(password)
