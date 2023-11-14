@@ -12,10 +12,10 @@ class DriverSimpeg(DriverBase):
         super().__init__()
         self.username = username
         self.password = password
-        driver.get(simpeg)
 
     def login(self):
         driver = self.driver
+        driver.get(simpeg)
 
         form_username = driver.find_element(By.NAME, 'username')
         form_password = driver.find_element(By.NAME, 'password')
