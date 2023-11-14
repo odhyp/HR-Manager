@@ -45,7 +45,7 @@ class DriverPresensi(DriverBase):
         driver.get(rekap_presensi)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.ID, 'mainnav-menu')))
+            self.wait().until(EC.presence_of_element_located((By.NAME, 'tanggal_mulai')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
