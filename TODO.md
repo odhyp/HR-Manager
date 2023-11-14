@@ -6,11 +6,11 @@ A simple to-do list to track the progress of the Human Resource Manager.
 
 - [ ] Add file manager (rename, move, etc)
 - [ ] Add excel format
-- [ ] Fix file download error (browser doesn't wait until file is finished downloading)
 
 ### In Progress
 
-- [ ] Add download method for rekap_presensi, rekap_prestasi, nominatif, and duk
+- [ ] Fix webdriver for being to fast before webpage fully load certain element like dropdown
+- [ ] Fix webdriver to wait until file has finished downloading
 
 ### Done ✓
 
@@ -19,3 +19,4 @@ A simple to-do list to track the progress of the Human Resource Manager.
 - [x] Replace parameters using getters and setters
 - [x] Project Restructure
 - [x] Add WebDriverWait for rekap_presensi() and rekap_prestasi()
+- [x] Add download method for rekap_presensi, rekap_prestasi, nominatif, and duk
