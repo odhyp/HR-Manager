@@ -8,20 +8,18 @@ simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
 
 
 class DriverSimpeg(DriverBase):
-    def __init__(self):
+    def __init__(self, username, password):
         super().__init__()
-        driver = self.driver
+        self.username = username
+        self.password = password
         driver.get(simpeg)
 
     def login(self):
         driver = self.driver
 
-        username = get_username()
-        password = get_password()
-
         form_username = driver.find_element(By.NAME, 'username')
         form_password = driver.find_element(By.NAME, 'password')
 
-        form_username.send_keys(username)
-        form_password.send_keys(password)
+        form_username.send_keys(self.username)
+        form_password.send_keys(self.password)
         form_password.send_keys(Keys.RETURN)
