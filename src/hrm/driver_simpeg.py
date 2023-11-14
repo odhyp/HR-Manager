@@ -8,6 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
 nominatif = "https://simpeg2.jogjaprov.go.id/prod/index.php/listing/nominatif"
+duk = "https://simpeg2.jogjaprov.go.id/prod/index.php/duk"
 nama_unor = "Kantor Pelayanan Pajak Daerah Daerah Istimewa Yogyakarta di Kabupaten Bantul"
 
 
@@ -46,6 +47,24 @@ class DriverSimpeg(DriverBase):
 
         try:
             self.wait().until(EC.presence_of_element_located((By.ID, 'dinas')))
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
+
+        form_nama_unor = driver.find_element(By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
+        button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
+
+        form_nama_unor.send_keys(nama_unor)
+        form_nama_unor.send_keys(Keys.ARROW_DOWN)
+        form_nama_unor.send_keys(Keys.RETURN)
+        button_export.click()
+
+    def duk(self):
+        driver = self.driver
+        driver.get(duk)
+
+        try:
+            self.wait().until(EC.presence_of_element_located((By.ID, 'tb')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
