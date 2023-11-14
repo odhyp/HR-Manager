@@ -34,6 +34,12 @@ class DriverPresensi(DriverBase):
         form_password.send_keys(self.password)
         form_password.send_keys(Keys.RETURN)
 
+        try:
+            self.wait().until(EC.presence_of_element_located((By.ID, 'mainnav-menu')))
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
+
     def rekap_presensi(self):
         driver = self.driver
         driver.get(rekap_presensi)
