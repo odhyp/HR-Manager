@@ -31,3 +31,9 @@ class DriverSimpeg(DriverBase):
         form_username.send_keys(self.username)
         form_password.send_keys(self.password)
         form_password.send_keys(Keys.RETURN)
+
+        try:
+            self.wait().until(EC.presence_of_element_located((By.CLASS_NAME, 'sidebar-menu')))
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
