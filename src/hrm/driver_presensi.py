@@ -9,6 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 presensi = "https://presensi2.jogjaprov.go.id/"
 rekap_presensi = "https://presensi2.jogjaprov.go.id/lap-pres/rekap/?menu_id=15"
+rekap_prestasi = "https://presensi2.jogjaprov.go.id/lap-pres/prestasi/?menu_id=16"
 
 
 class DriverPresensi(DriverBase):
@@ -57,5 +58,23 @@ class DriverPresensi(DriverBase):
 
         form_tanggal_mulai.send_keys("2023-11-13")
         form_tanggal_selesai.send_keys("2023-11-14")
+        Select(dropdown_export_mode).select_by_value("excel")
+        button_submit.click()
+
+    def rekap_prestasi(self):
+        driver = self.driver
+        driver.get(rekap_prestasi)
+
+        try:
+            self.wait().until(EC.presence_of_element_located((By.NAME, 'bulan')))
+        except NoSuchElementException:
+            print(NoSuchElementException)
+            self.quit()
+
+        form_bulan = driver.find_element(By.NAME, 'bulan')
+        dropdown_export_mode = driver.find_element(By.ID, 'fatih')
+        button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+
+        form_bulan.send_keys("11/2023")
         Select(dropdown_export_mode).select_by_value("excel")
         button_submit.click()
