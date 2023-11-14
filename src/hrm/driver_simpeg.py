@@ -46,7 +46,7 @@ class DriverSimpeg(DriverBase):
         driver.get(nominatif)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.ID, 'dinas')))
+            self.wait().until(EC.presence_of_element_located((By.ID, 'tb')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
