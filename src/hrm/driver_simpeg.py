@@ -1,10 +1,9 @@
-from src.hrm.driver_base import DriverBase
-
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
+
+from src.hrm.driver_base import DriverBase
 
 simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
 nominatif = "https://simpeg2.jogjaprov.go.id/prod/index.php/listing/nominatif"
