@@ -40,7 +40,7 @@ class DriverPresensi(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
-    def rekap_presensi(self):
+    def rekap_presensi(self, tanggal_mulai, tanggal_selesai):
         driver = self.driver
         driver.get(rekap_presensi)
 
@@ -55,12 +55,12 @@ class DriverPresensi(DriverBase):
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
         button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
-        form_tanggal_mulai.send_keys("2023-11-13")
-        form_tanggal_selesai.send_keys("2023-11-14")
+        form_tanggal_mulai.send_keys(tanggal_mulai)
+        form_tanggal_selesai.send_keys(tanggal_selesai)
         Select(dropdown_export_mode).select_by_value("excel")
         button_submit.click()
 
-    def rekap_prestasi(self):
+    def rekap_prestasi(self, bulan):
         driver = self.driver
         driver.get(rekap_prestasi)
 
@@ -74,6 +74,6 @@ class DriverPresensi(DriverBase):
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
         button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
-        form_bulan.send_keys("11/2023")
+        form_bulan.send_keys(bulan)
         Select(dropdown_export_mode).select_by_value("excel")
         button_submit.click()
