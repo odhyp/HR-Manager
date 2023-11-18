@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -50,6 +50,7 @@ class DriverPresensi(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
+        form_nipnama = driver.find_element(By.NAME, 'nipnama')
         form_tanggal_mulai = driver.find_element(By.NAME, 'tanggal_mulai')
         form_tanggal_selesai = driver.find_element(By.NAME, 'tanggal_selesai')
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
@@ -58,7 +59,11 @@ class DriverPresensi(DriverBase):
         form_tanggal_mulai.send_keys(tanggal_mulai)
         form_tanggal_selesai.send_keys(tanggal_selesai)
         Select(dropdown_export_mode).select_by_value("excel")
-        button_submit.click()
+
+        try:
+            button_submit.click()
+        except (ElementClickInterceptedException, Exception):
+            form_nipnama.send_keys(Keys.RETURN)
 
     def rekap_prestasi(self, bulan):
         driver = self.driver
@@ -70,10 +75,15 @@ class DriverPresensi(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
+        form_nipnama = driver.find_element(By.NAME, 'nipnama')
         form_bulan = driver.find_element(By.NAME, 'bulan')
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
         button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
         form_bulan.send_keys(bulan)
         Select(dropdown_export_mode).select_by_value("excel")
-        button_submit.click()
+
+        try:
+            button_submit.click()
+        except (ElementClickInterceptedException, Exception):
+            form_nipnama.send_keys(Keys.RETURN)
