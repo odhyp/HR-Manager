@@ -40,7 +40,7 @@ class DriverPresensi(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
-    def rekap_presensi(self, tanggal_mulai, tanggal_selesai):
+    def rekap_presensi(self, tanggal_mulai, tanggal_selesai, jenis_laporan="detail"):
         driver = self.driver
         driver.get(rekap_presensi)
 
@@ -53,11 +53,13 @@ class DriverPresensi(DriverBase):
         form_nipnama = driver.find_element(By.NAME, 'nipnama')
         form_tanggal_mulai = driver.find_element(By.NAME, 'tanggal_mulai')
         form_tanggal_selesai = driver.find_element(By.NAME, 'tanggal_selesai')
+        dropdown_jenis_laporan = driver.find_element(By.NAME, 'jenis_lap_kode')
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
         button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
         form_tanggal_mulai.send_keys(tanggal_mulai)
         form_tanggal_selesai.send_keys(tanggal_selesai)
+        Select(dropdown_jenis_laporan).select_by_value(jenis_laporan)
         Select(dropdown_export_mode).select_by_value("excel")
 
         try:
