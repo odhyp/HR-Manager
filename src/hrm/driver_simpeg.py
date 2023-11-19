@@ -3,7 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 
+import time
+
 from src.hrm.driver_base import DriverBase
+
+WAIT_TIME = 1.5
 
 simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
 nominatif = "https://simpeg2.jogjaprov.go.id/prod/index.php/listing/nominatif"
@@ -53,9 +57,13 @@ class DriverSimpeg(DriverBase):
         form_nama_unor = driver.find_element(By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(nama_unor)
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.ARROW_DOWN)
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.RETURN)
+        time.sleep(WAIT_TIME)
         button_export.click()
 
     def duk(self):
@@ -71,7 +79,11 @@ class DriverSimpeg(DriverBase):
         form_nama_unor = driver.find_element(By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(nama_unor)
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.ARROW_DOWN)
+        time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.RETURN)
+        time.sleep(WAIT_TIME)
         button_export.click()
