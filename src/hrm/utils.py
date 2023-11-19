@@ -20,10 +20,10 @@ def get_download_path():
 def get_username():
     with open(get_password_path()) as f:
         username = f.readlines()[0].strip()
-        return str(username)
+    return str(username)
 
 
 def get_password():
     with open(get_password_path()) as f:
         password = f.readlines()[1].strip()
-        return str(password)
+    return str(password)
