@@ -26,9 +26,10 @@ class FileManager:
 
     def is_downloaded(self, type):
         for file in get_download_path().iterdir():
-            is_target_file = self.is_target_file(type, str(file.name))
-            is_xls = self.is_xls(str(file.name))
+            is_target_file = self.is_target_file(type, file.name)
+            is_xls = self.is_xls(file.name)
             if is_target_file and is_xls:
                 return True
             else:
-                return False
+                continue
+        return False
