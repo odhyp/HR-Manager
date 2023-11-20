@@ -1,3 +1,5 @@
+import time
+
 from src.hrm.utils import get_download_path
 
 
@@ -33,3 +35,9 @@ class FileManager:
             else:
                 continue
         return False
+
+    def wait_for_download(self, type, timeout=20):
+        while not self.is_downloaded(type) and timeout != 0:
+            time.sleep(1)
+            timeout -= 1
+        return True
