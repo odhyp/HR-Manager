@@ -1,4 +1,4 @@
-from utils import get_download_path
+from src.hrm.utils import get_download_path
 
 
 class FileManager:
