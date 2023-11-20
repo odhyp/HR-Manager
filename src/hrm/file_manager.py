@@ -30,3 +30,5 @@ class FileManager:
             is_xls = self.is_xls(str(file.name))
             if is_target_file and is_xls:
                 return True
+            else:
+                return False
