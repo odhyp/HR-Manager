@@ -7,7 +7,7 @@ import time
 
 from src.hrm.driver_base import DriverBase
 
-WAIT_TIME = 1.5
+WAIT_TIME = 3.5
 
 simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
 nominatif = "https://simpeg2.jogjaprov.go.id/prod/index.php/listing/nominatif"
