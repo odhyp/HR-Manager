@@ -41,3 +41,12 @@ class FileManager:
             time.sleep(1)
             timeout -= 1
         return True
+
+    def get_file_path(self, type):
+        for file in get_download_path().iterdir():
+            is_target_file = self.is_target_file(type, file.name)
+            if is_target_file:
+                return file
+            else:
+                continue
+        return f"File not found."
