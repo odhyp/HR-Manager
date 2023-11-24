@@ -1,29 +1,15 @@
-from fpdf import FPDF
+from src.spt.pdf import PDF, PAPER_SIZE_F4
 
-# create FPDF object
-# Layout ('P', 'L')
-# Unit ('mm', 'cm', 'in')
-# format ('A3', 'A4' (default), 'A5', 'Letter', 'Legal', (100,150))
-pdf = FPDF('P', 'mm', 'A4')
 
-# Add a page
-pdf.add_page()
+def main():
+    pdf = PDF('P', 'mm', PAPER_SIZE_F4)
+    pdf.set_title('Surat Perintah Tugas')
+    pdf.set_author('Odhy Pradhana')
 
-# Specify font
-# fonts ('times', 'courier', 'helvetica', 'symbol', 'zpdfingbats'
-# 'B' (bold), 'U' (underline), 'I' (italics), '' (regular), combination (i.e., ('BU'))
-# font size = int
-pdf.set_font('times', '', 12)
+    pdf.print_chapter()
 
-# Add text
-# w=width, (if set to 0 means the width is the entire width of the pdf)
-# h=height,
-# txt='your text',
-# ln (False; True - move cursor down to next line)
-# border (False; True - add border around cell)
-pdf.cell(120, 10, 'Hello World!', border=True)
-pdf.cell(80, 10, 'Good Bye World!')
+    pdf.output('pdf_2.pdf')
 
-# Output the PDF
-# If the file isn't closed, it will return error
-pdf.output('pdf_1.pdf')
+
+if __name__ == '__main__':
+    main()
