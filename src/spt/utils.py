@@ -15,5 +15,5 @@ def get_data_path():
 
 def get_duk_path():
     data_path = get_data_path()
-    duk_path = Path(data_path, 'duk.txt')
+    duk_path = Path(data_path, 'duk.xlsx')
     return duk_path
