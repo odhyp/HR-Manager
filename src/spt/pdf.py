@@ -204,5 +204,5 @@ class PDF(FPDF):
         self.section_employee()
         self.section_employee()
         self.section_assignment()
-        self.section_date()
+        self.section_date('27 November 2023')
         self.section_signature()
