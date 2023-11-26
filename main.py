@@ -1,8 +1,9 @@
-from src.spt.pdf import PDF, PAPER_SIZE_F4
+from src.spt.pdf import PDF
+from src.spt import constants
 
 
 def main():
-    pdf = PDF('P', 'mm', PAPER_SIZE_F4)
+    pdf = PDF('P', 'mm', constants.PAPER_SIZE)
     pdf.set_title('Surat Perintah Tugas')
     pdf.set_author('Odhy Pradhana')
 

@@ -1,0 +1,2 @@
+PAPER_SIZE = (215, 330)
+SHOW_BORDERS = True

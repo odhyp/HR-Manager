@@ -1,7 +1,6 @@
 from fpdf import FPDF
 
-PAPER_SIZE_F4 = (215, 330)
-BORDER_TEST = False
+from src.spt import constants
 
 
 class PDF(FPDF):
@@ -19,12 +18,12 @@ class PDF(FPDF):
                   align="R",
                   new_x="LMARGIN",
                   new_y="NEXT",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=40,
                   new_x="LMARGIN",
                   new_y="NEXT",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
 
     def section_title(self, letter_number):
         """Add title section. 'Surat Perintah Tugas', Letter number, and
@@ -40,7 +39,7 @@ class PDF(FPDF):
                   align="C",
                   new_x="LMARGIN",
                   new_y="NEXT",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
 
         # Section: Nomor Surat
         self.set_font(family="times",
@@ -51,7 +50,7 @@ class PDF(FPDF):
                   align="C",
                   new_x="LMARGIN",
                   new_y="NEXT",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
 
         # Section: Perintah Kepala Kantor
         self.ln(8)
@@ -62,7 +61,7 @@ class PDF(FPDF):
                         text="Yang bertanda tangan di bawah ini Kepala Kantor Pelayanan Pajak Daerah DIY di Kabupaten Bantul BPKA DIY, dengan ini memerintahkan kepada:",
                         new_x="LMARGIN",
                         new_y="NEXT",
-                        border=BORDER_TEST)
+                        border=constants.SHOW_BORDERS)
         self.ln(4)
 
     def section_employee(self):
@@ -87,25 +86,25 @@ class PDF(FPDF):
                             align="R",
                             new_x="RIGHT",
                             new_y="LAST",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.multi_cell(w=40,
                             h=6,
                             text=asn_name[i],
                             new_x="RIGHT",
                             new_y="LAST",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=6,
                             text=":",
                             new_x="RIGHT",
                             new_y="LAST",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.multi_cell(w=0,
                             h=6,
                             text=asn_value[i],
                             new_x="RIGHT",
                             new_y="NEXT",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.ln(1)
 
         self.ln(4)
@@ -129,19 +128,19 @@ class PDF(FPDF):
                             text=data_name[i],
                             new_x="RIGHT",
                             new_y="LAST",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=8,
                             text=":",
                             new_x="RIGHT",
                             new_y="LAST",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.multi_cell(w=0,
                             h=8,
                             text=data_value[i],
                             new_x="RIGHT",
                             new_y="NEXT",
-                            border=BORDER_TEST)
+                            border=constants.SHOW_BORDERS)
             self.ln(1)
 
         self.ln(8)
@@ -158,13 +157,13 @@ class PDF(FPDF):
                       h=8,
                       new_x="RIGHT",
                       new_y="LAST",
-                      border=BORDER_TEST)
+                      border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=8,
                       text=tanggal_name[i],
                       new_x="RIGHT",
                       new_y="NEXT",
-                      border=BORDER_TEST)
+                      border=constants.SHOW_BORDERS)
             self.ln(1)
 
     def section_signature(self):
@@ -178,14 +177,14 @@ class PDF(FPDF):
                   h=8,
                   new_x="RIGHT",
                   new_y="LAST",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=8,
                   text='Plt. Kepala',
                   align='C',
                   new_x="RIGHT",
                   new_y="NEXT",
-                  border=BORDER_TEST)
+                  border=constants.SHOW_BORDERS)
 
         self.ln(24)
 
@@ -200,14 +199,14 @@ class PDF(FPDF):
                       h=4,
                       new_x="RIGHT",
                       new_y="LAST",
-                      border=BORDER_TEST)
+                      border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=4,
                       text=kepala_name[i],
                       align='C',
                       new_x="RIGHT",
                       new_y="NEXT",
-                      border=BORDER_TEST)
+                      border=constants.SHOW_BORDERS)
             self.ln(1)
 
     def print_section(self):
