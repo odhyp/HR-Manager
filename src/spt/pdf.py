@@ -34,7 +34,7 @@ class PDF(FPDF):
                       style="BU",
                       size=12)
         self.cell(w=0,
-                  h=4,
+                  h=8,
                   text="SURAT PERINTAH TUGAS",
                   align="C",
                   new_x="LMARGIN",
@@ -45,7 +45,7 @@ class PDF(FPDF):
         self.set_font(family="times",
                       size=12)
         self.cell(w=0,
-                  h=8,
+                  h=4,
                   text=f"NOMOR : 800 / {letter_number}",
                   align="C",
                   new_x="LMARGIN",
