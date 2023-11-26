@@ -1,0 +1,25 @@
+NP;NIP;NAMA;GOLONGAN;JABATAN
+evy;198107072011012010;EVY RETNO DEWI, SE., M.Si.;Pembina/IV/a;Kepala Seksi Pendaftaran dan Penetapan
+wandi;196809051989031007;WANDIANTO, S.I.P.;Penata Tk. I/III/d;Kepala Seksi Pembukuan dan Penagihan
+dwi;197304031999031005;DWI WIDIHADI, S.TP. ;Penata Tk. I/III/d;Pengadministrasi Pajak
+feri;197708151998032002;FERIYATI SUHARTO, S.Pd., M.M.;Penata Tk. I/III/d;Kepala Subbagian Tata Usaha
+jita;196603081986021002;MUJITA, S.Sos.;Penata Tk. I/III/d;Pengelola Data dan Dokumen Perpajakan
+eko;197710142014061001;EKO SIDIQ RACHMANTO, S.E., M.M.;Penata/III/c;Kustodian Barang Milik Negara
+handoko;196908172007011025;BAGUS HANDOKO;Penata/III/c;Pengelola Pajak Daerah
+yayuk;196604141986022002;IRENE RAHAYU SUPRIHATIN;Penata Muda Tk. I/III/b;Verifikator Pajak
+zamudi;196607231986031003;ZAMUDI WIDADA;Penata Muda Tk. I/III/b;Pengelola Pendaftaran, Pendataan Pajak, dan Retribusi 
+anna;196707301989082001;ANNA YULI RAHAYU;Penata Muda Tk. I/III/b;Pengelola Penagihan dan Pengawasan
+ratih;196909071992032010;RATIH LASMIWI;Penata Muda Tk. I/III/b;Verifikator Pajak
+rusni;197204281993032002;RUSNI SUGIARTI;Penata Muda Tk. I/III/b;Pengadministrasi Keuangan
+hendry;197611072008011015;MUHAMMAD HENDRY KUSWARA, S.H;Penata Muda Tk. I/III/b;Verifikator Pajak
+yasin;196512102007011017;ARSYAD YASIN;Penata Muda/III/a;Verifikator Pajak
+harjana;197211262007011006;HARJANA;Pengatur Tk. I/II/d;Pengelola Pendaftaran, Pendataan Pajak, dan Retribusi 
+firda;199611162020122011;FIRDA AINUN NADHIROH, A.Md;Pengatur/II/c;Pengadministrasi Pajak
+noviyan;199811042021021001;NOVIYAN HOGY ANDIKA SURYANTO, A.Md.Ak;Pengatur/II/c;Kustodian Barang Milik Negara
+bagoes;199908272021021001;MOCHAMMAD BAGOES AFRIZAL, A.Md.A.Pj;Pengatur/II/c;Pengelola Pajak Daerah
+aulia;199808022021022001;AULIA ARITA MS, A.Md.A.Pj.;Pengatur/II/c;Pengelola Pendaftaran dan Pendataan Pajak/Retribusi
+tesar;199903092021021001;TESAR BAGUS PAMUNGKAS, A. Md. Ak.;Pengatur/II/c;Verifikator Data Laporan Keuangan
+ammar;199904162021021001;MUHAMMAD FARUQ AMMAR, A.Md.Ak.;Pengatur/II/c;Pengelola Akuntansi
+odhy;199904192021021002;ODHY PRADHANA, A.Md.Ak;Pengatur/II/c;Pengelola Gaji
+fara;199911032022012002;FARA ATHALABIBA, A.Md.A.Pj.;Pengatur/II/c;Verifikator Pajak
+sugiman;196803292007011009;SUGIMAN;Pengatur/II/c;Pengelola Pendaftaran, Pendataan Pajak, dan Retribusi 
