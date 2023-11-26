@@ -213,7 +213,7 @@ class PDF(FPDF):
         self.add_page()
 
         # All margins are 2,54cm
-        self.set_margin(25.4)
+        self.set_margin(constants.PAPER_MARGINS)
 
         self.section_title(5670)
         self.section_employee()
