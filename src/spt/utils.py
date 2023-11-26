@@ -13,7 +13,7 @@ def get_data_path():
     return data_path
 
 
-def get_golongan_path():
+def get_duk_path():
     data_path = get_data_path()
-    golongan_path = Path(data_path, 'golongan.txt')
-    return golongan_path
+    duk_path = Path(data_path, 'duk.txt')
+    return duk_path
