@@ -6,7 +6,7 @@ def create_pdf():
     pdf = PDF(orientation='P',
               unit='mm',
               format=constants.PAPER_SIZE)
-    pdf.print_section()
+    pdf.print_sections()
 
 
 if __name__ == '__main__':

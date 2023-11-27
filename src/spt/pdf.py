@@ -200,7 +200,7 @@ class PDF(FPDF):
                       border=constants.SHOW_BORDERS)
             self.ln(1)
 
-    def print_section(self):
+    def print_sections(self):
         """Page setups, adding sections, and print out PDF file.
         """
         # Page settings
