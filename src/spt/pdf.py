@@ -7,8 +7,10 @@ from src.spt.texts import spt_texts
 class PDF(FPDF):
     def header(self):
         """Add a header for the PDF page. Add letter "B" to follow
-        Correspondence Guideline and excludes letterhead.
+        Correspondence Guideline. Excludes letterhead, please use office
+        letterhead paper.
         """
+        # Section: B (Arsip surat)
         self.set_y(1)
         self.set_font(family="times",
                       style="B",
@@ -74,6 +76,7 @@ class PDF(FPDF):
                      'Pengelola Gaji',
                      ]
 
+        # Section: Data pegawai
         for i in range(4):
             self.multi_cell(w=20,
                             h=6,
@@ -112,6 +115,7 @@ class PDF(FPDF):
                       'Badan Pengelola Keuangan dan Aset DIY Badan Pengelola Keuangan dan Aset DIY Badan Pengelola Keuangan dan Aset DIY',
                       ]
 
+        # Section: Kepentingan, hari/tanggal, tujuan tugas
         for i in range(3):
             self.multi_cell(w=30,
                             h=8,
@@ -138,6 +142,7 @@ class PDF(FPDF):
     def section_date(self, letter_date):
         """Add letter date.
         """
+        # Section: Tanggal surat
         spt_texts['section_date'][1] += letter_date
         for i in range(2):
             self.cell(w=60,
@@ -157,6 +162,7 @@ class PDF(FPDF):
         """Add Head office status, signature area, Head office name, Head
         office NIP.
         """
+        # Section: Kepala
         self.set_font(family='times',
                       style='B',
                       size=12)
@@ -175,6 +181,7 @@ class PDF(FPDF):
 
         self.ln(24)
 
+        # Section: Data Kepala Kantor
         self.set_font(family='times',
                       size=12)
 
@@ -194,10 +201,15 @@ class PDF(FPDF):
             self.ln(1)
 
     def print_section(self):
+        """Page setups, adding sections, and print out PDF file.
+        """
+        # Page settings
         self.add_page()
         self.set_title('SPT')
         self.set_author('Odhy Pradhana')
         self.set_margin(constants.PAPER_MARGINS)
+
+        # Add sections
         self.section_title(5670)
         self.section_employee()
         self.section_employee()
@@ -205,4 +217,6 @@ class PDF(FPDF):
         self.section_assignment()
         self.section_date('27 November 2023')
         self.section_signature()
+
+        # Finalize
         self.output(name='pdf_3.pdf')
