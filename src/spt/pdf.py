@@ -11,14 +11,14 @@ class PDF(FPDF):
         letterhead paper.
         """
         # Section: B (Arsip surat)
-        self.set_y(1)
+        self.set_xy(5, 1)
         self.set_font(family="times",
                       style="B",
                       size=12)
-        self.cell(w=10,
+        self.cell(w=5,
                   h=5,
                   text="B",
-                  align="R",
+                  align="L",
                   new_x="LMARGIN",
                   new_y="NEXT",
                   border=constants.SHOW_BORDERS)
