@@ -1,7 +1,7 @@
 spt_texts = {'section_title':
              [
                  'SURAT PERINTAH TUGAS',
-                 'NOMOR : 800 / ',
+                 'NOMOR : 800  /',
                  'Yang bertanda tangan di bawah ini Kepala Kantor Pelayanan Pajak Daerah DIY di Kabupaten Bantul BPKA DIY, dengan ini memerintahkan kepada:',
              ],
 

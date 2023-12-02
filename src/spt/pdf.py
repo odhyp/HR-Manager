@@ -47,11 +47,18 @@ class PDF(FPDF):
         # Section: Nomor Surat
         self.set_font(family="times",
                       size=12)
+        self.cell(w=93,
+                  h=4,
+                  text=f"{spt_texts['section_title'][1]}",
+                  align="R",
+                  new_x="RIGHT",
+                  new_y="LAST",
+                  border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=4,
-                  text=f"{spt_texts['section_title'][1]}{letter_number}",
-                  align="C",
-                  new_x="LMARGIN",
+                  text=str(letter_number),
+                  align="L",
+                  new_x="RIGHT",
                   new_y="NEXT",
                   border=constants.SHOW_BORDERS)
 
