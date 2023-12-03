@@ -4,10 +4,19 @@ To-do list to track the progress of Surat Perintah Tugas.
 
 ### Todo
 
-- [ ] Add description in README
-- [ ] Add project structure in README
-- [ ] Add README in Bahasa Indonesia
-- [ ] Add badges in README
+- [ ] README.md
+    + [ ] Add description
+    + [ ] Add project structure
+    + [ ] Add Bahasa Indonesia
+    + [ ] Add badges
+
+- [ ] Files
+    + [ ] Add sample data/examples
+    + [ ] Add docs
+    + [ ] Add tests
+    + [ ] Add setup
+    + [ ] Add requirements (either as a file or in README.md)
+    
 - [ ] Add command-line menu
 
 ### In Progress
