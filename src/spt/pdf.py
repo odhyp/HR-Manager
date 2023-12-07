@@ -1,10 +1,12 @@
 from fpdf import FPDF
 
 from src.spt import constants
-from src.spt.texts import spt_texts
+from src.spt.text_generator import TextGenerator
 
 
 class PDF(FPDF):
+    text_list = TextGenerator().get_text()
+
     def header(self):
         """Add a header for the PDF page. Add letter "B" to follow
         Correspondence Guideline. Excludes letterhead, please use office
@@ -17,7 +19,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=5,
                   h=5,
-                  text="B",
+                  text=self.text_list[0],
                   align="L",
                   new_x="LMARGIN",
                   new_y="NEXT",
@@ -38,7 +40,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=0,
                   h=8,
-                  text=spt_texts['section_title'][0],
+                  text=self.text_list[2],
                   align="C",
                   new_x="LMARGIN",
                   new_y="NEXT",
@@ -49,7 +51,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=93,
                   h=4,
-                  text=f"{spt_texts['section_title'][1]}",
+                  text=self.text_list[3],
                   align="R",
                   new_x="RIGHT",
                   new_y="LAST",
@@ -68,7 +70,7 @@ class PDF(FPDF):
                       size=12)
         self.multi_cell(w=0,
                         h=8,
-                        text=spt_texts['section_title'][2],
+                        text=f"{self.text_list[4]} -- and-- {self.text_list[5]}",
                         new_x="LMARGIN",
                         new_y="NEXT",
                         border=constants.SHOW_BORDERS)
@@ -84,7 +86,7 @@ class PDF(FPDF):
                      ]
 
         # Section: Data pegawai
-        for i in range(4):
+        for i in range(6, 10):
             self.multi_cell(w=20,
                             h=6,
                             text="x",  # testing line
@@ -94,19 +96,19 @@ class PDF(FPDF):
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=40,
                             h=6,
-                            text=spt_texts['section_employee'][i],
+                            text=self.text_list[i],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=6,
-                            text=":",
+                            text=self.text_list[1],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=0,
                             h=6,
-                            text=asn_value[i],
+                            text=asn_value[i-6],
                             new_x="RIGHT",
                             new_y="NEXT",
                             border=constants.SHOW_BORDERS)
@@ -123,22 +125,22 @@ class PDF(FPDF):
                       ]
 
         # Section: Kepentingan, hari/tanggal, tujuan tugas
-        for i in range(3):
+        for i in range(10, 13):
             self.multi_cell(w=30,
                             h=8,
-                            text=spt_texts['section_assignment'][i],
+                            text=self.text_list[i],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=8,
-                            text=":",
+                            text=self.text_list[1],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=0,
                             h=8,
-                            text=data_value[i],
+                            text=data_value[i-10],
                             new_x="RIGHT",
                             new_y="NEXT",
                             border=constants.SHOW_BORDERS)
@@ -150,8 +152,8 @@ class PDF(FPDF):
         """Add letter date.
         """
         # Section: Tanggal surat
-        spt_texts['section_date'][1] += letter_date
-        for i in range(2):
+        self.text_list[14] += letter_date
+        for i in range(13, 15):
             self.cell(w=60,
                       h=8,
                       new_x="RIGHT",
@@ -159,7 +161,7 @@ class PDF(FPDF):
                       border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=8,
-                      text=spt_texts['section_date'][i],
+                      text=self.text_list[i],
                       new_x="RIGHT",
                       new_y="NEXT",
                       border=constants.SHOW_BORDERS)
@@ -180,7 +182,7 @@ class PDF(FPDF):
                   border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=8,
-                  text=spt_texts['section_signature'][0],
+                  text="Plt. Kepala", #need update
                   align='C',
                   new_x="RIGHT",
                   new_y="NEXT",
@@ -200,7 +202,7 @@ class PDF(FPDF):
                       border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=4,
-                      text=spt_texts['section_signature'][i],
+                      text="test",
                       align='C',
                       new_x="RIGHT",
                       new_y="NEXT",
