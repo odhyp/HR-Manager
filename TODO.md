@@ -23,6 +23,7 @@ To-do list to track the progress of Surat Perintah Tugas.
 
 - [ ] Fix text import from base_text.txt and user_text.txt
 - [ ] Fix method parameter in PDF class
+- [ ] Add file_handling.py or file_operations.py to store file checker method
 
 ### Done ✓
 
