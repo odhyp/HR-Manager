@@ -1,4 +1,4 @@
-from src.spt.utils import get_base_text_path
+from src.spt.utils import get_base_text_path, get_user_text_path
 
 
 class TextGenerator:
