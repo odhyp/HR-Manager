@@ -5,7 +5,8 @@ from src.spt.text_generator import TextGenerator
 
 
 class PDF(FPDF):
-    text_list = TextGenerator().get_text()
+    base_text = TextGenerator().base_text
+    user_text = TextGenerator().user_text
 
     def header(self):
         """Add a header for the PDF page. Add letter "B" to follow
@@ -19,7 +20,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=5,
                   h=5,
-                  text=self.text_list[0],
+                  text=self.base_text[0],
                   align="L",
                   new_x="LMARGIN",
                   new_y="NEXT",
@@ -40,7 +41,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=0,
                   h=8,
-                  text=self.text_list[2],
+                  text=self.base_text[2],
                   align="C",
                   new_x="LMARGIN",
                   new_y="NEXT",
@@ -51,7 +52,7 @@ class PDF(FPDF):
                       size=12)
         self.cell(w=93,
                   h=4,
-                  text=self.text_list[3],
+                  text=self.base_text[3],
                   align="R",
                   new_x="RIGHT",
                   new_y="LAST",
@@ -70,7 +71,7 @@ class PDF(FPDF):
                       size=12)
         self.multi_cell(w=0,
                         h=8,
-                        text=f"{self.text_list[4]} -- and-- {self.text_list[5]}",
+                        text=f"{self.base_text[4]} {self.user_text[0]} {self.base_text[5]}",
                         new_x="LMARGIN",
                         new_y="NEXT",
                         border=constants.SHOW_BORDERS)
@@ -96,13 +97,13 @@ class PDF(FPDF):
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=40,
                             h=6,
-                            text=self.text_list[i],
+                            text=self.base_text[i],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=6,
-                            text=self.text_list[1],
+                            text=self.base_text[1],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
@@ -128,13 +129,13 @@ class PDF(FPDF):
         for i in range(10, 13):
             self.multi_cell(w=30,
                             h=8,
-                            text=self.text_list[i],
+                            text=self.base_text[i],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
             self.multi_cell(w=5,
                             h=8,
-                            text=self.text_list[1],
+                            text=self.base_text[1],
                             new_x="RIGHT",
                             new_y="LAST",
                             border=constants.SHOW_BORDERS)
@@ -152,7 +153,7 @@ class PDF(FPDF):
         """Add letter date.
         """
         # Section: Tanggal surat
-        self.text_list[14] += letter_date
+        self.base_text[14] += letter_date
         for i in range(13, 15):
             self.cell(w=60,
                       h=8,
@@ -161,7 +162,7 @@ class PDF(FPDF):
                       border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=8,
-                      text=self.text_list[i],
+                      text=self.base_text[i],
                       new_x="RIGHT",
                       new_y="NEXT",
                       border=constants.SHOW_BORDERS)

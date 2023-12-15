@@ -1,5 +1,6 @@
 from src.spt.pdf import PDF
 from src.spt import constants
+from src.spt.text_generator import TextGenerator
 
 
 def create_pdf():
