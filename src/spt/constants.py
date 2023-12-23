@@ -1,3 +1,8 @@
+# Page size (mm). Default is F4 paper
 PAPER_SIZE = (215, 330)
+
+# Page margins (mm). Top bottom left right margin
 PAPER_MARGINS = 25.4
-SHOW_BORDERS = True
+
+# Show cell borders
+SHOW_BORDERS = False
