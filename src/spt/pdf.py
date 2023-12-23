@@ -194,21 +194,33 @@ class PDF(FPDF):
         # Section: Data Kepala Kantor
         self.set_font(family='times',
                       size=constants.FONT_SIZE)
+        self.cell(w=60,
+                  h=4,
+                  new_x="RIGHT",
+                  new_y="LAST",
+                  border=constants.SHOW_BORDERS)
+        self.cell(w=0,
+                  h=4,
+                  text=self.user_text[3],
+                  align='C',
+                  new_x="RIGHT",
+                  new_y="NEXT",
+                  border=constants.SHOW_BORDERS)
+        self.ln(1)
 
-        for i in range(3, 5):
-            self.cell(w=60,
-                      h=4,
-                      new_x="RIGHT",
-                      new_y="LAST",
-                      border=constants.SHOW_BORDERS)
-            self.cell(w=0,
-                      h=4,
-                      text=self.user_text[i],
-                      align='C',
-                      new_x="RIGHT",
-                      new_y="NEXT",
-                      border=constants.SHOW_BORDERS)
-            self.ln(1)
+        self.cell(w=60,
+                  h=4,
+                  new_x="RIGHT",
+                  new_y="LAST",
+                  border=constants.SHOW_BORDERS)
+        self.cell(w=0,
+                  h=4,
+                  text=f"{self.base_text[15]}{self.user_text[4]}",
+                  align='C',
+                  new_x="RIGHT",
+                  new_y="NEXT",
+                  border=constants.SHOW_BORDERS)
+        self.ln(1)
 
     def print_sections(self):
         """Page setups, adding sections, and print out PDF file.
