@@ -15,7 +15,7 @@ To-do list to track the progress of Surat Perintah Tugas.
     + [ ] Add docs
     + [ ] Add tests
     + [ ] Add setup
-    + [ ] Add requirements (either as a file or in README.md)
+    + [x] Add requirements (either as a file or in README.md)
     
 - [ ] Add command-line menu
 
