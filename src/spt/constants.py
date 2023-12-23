@@ -8,4 +8,4 @@ PAPER_MARGINS = 25.4
 SHOW_BORDERS = False
 
 # Font size. Default is 12
-FONT_SIZE = 13
+FONT_SIZE = 12
