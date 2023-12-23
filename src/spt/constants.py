@@ -6,3 +6,6 @@ PAPER_MARGINS = 25.4
 
 # Show cell borders
 SHOW_BORDERS = False
+
+# Font size. Default is 12
+FONT_SIZE = 13

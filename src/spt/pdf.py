@@ -17,7 +17,7 @@ class PDF(FPDF):
         self.set_xy(5, 1)
         self.set_font(family="times",
                       style="B",
-                      size=12)
+                      size=constants.FONT_SIZE)
         self.cell(w=5,
                   h=5,
                   text=self.base_text[0],
@@ -38,7 +38,7 @@ class PDF(FPDF):
         # Section: SURAT PERINTAH TUGAS
         self.set_font(family="times",
                       style="BU",
-                      size=12)
+                      size=constants.FONT_SIZE)
         self.cell(w=0,
                   h=8,
                   text=self.base_text[2],
@@ -49,7 +49,7 @@ class PDF(FPDF):
 
         # Section: Nomor Surat
         self.set_font(family="times",
-                      size=12)
+                      size=constants.FONT_SIZE)
         self.cell(w=93,
                   h=4,
                   text=self.base_text[3],
@@ -68,7 +68,7 @@ class PDF(FPDF):
         # Section: Perintah Kepala Kantor
         self.ln(8)
         self.set_font(family="times",
-                      size=12)
+                      size=constants.FONT_SIZE)
         self.multi_cell(w=0,
                         h=8,
                         text=f"{self.base_text[4]} {self.user_text[0]} {self.base_text[5]}",
@@ -175,7 +175,7 @@ class PDF(FPDF):
         # Section: Kepala
         self.set_font(family='times',
                       style='B',
-                      size=12)
+                      size=constants.FONT_SIZE)
         self.cell(w=60,
                   h=8,
                   new_x="RIGHT",
@@ -193,7 +193,7 @@ class PDF(FPDF):
 
         # Section: Data Kepala Kantor
         self.set_font(family='times',
-                      size=12)
+                      size=constants.FONT_SIZE)
 
         for i in range(3, 5):
             self.cell(w=60,
