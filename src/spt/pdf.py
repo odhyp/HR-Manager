@@ -183,7 +183,7 @@ class PDF(FPDF):
                   border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=8,
-                  text="Plt. Kepala", #need update
+                  text=self.user_text[2],
                   align='C',
                   new_x="RIGHT",
                   new_y="NEXT",
@@ -195,7 +195,7 @@ class PDF(FPDF):
         self.set_font(family='times',
                       size=12)
 
-        for i in range(1, 3):
+        for i in range(3, 5):
             self.cell(w=60,
                       h=4,
                       new_x="RIGHT",
@@ -203,7 +203,7 @@ class PDF(FPDF):
                       border=constants.SHOW_BORDERS)
             self.cell(w=0,
                       h=4,
-                      text="test",
+                      text=self.user_text[i],
                       align='C',
                       new_x="RIGHT",
                       new_y="NEXT",
