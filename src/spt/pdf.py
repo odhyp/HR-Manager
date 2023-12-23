@@ -153,20 +153,31 @@ class PDF(FPDF):
         """Add letter date.
         """
         # Section: Tanggal surat
-        self.base_text[14] += letter_date
-        for i in range(13, 15):
-            self.cell(w=60,
-                      h=8,
-                      new_x="RIGHT",
-                      new_y="LAST",
-                      border=constants.SHOW_BORDERS)
-            self.cell(w=0,
-                      h=8,
-                      text=self.base_text[i],
-                      new_x="RIGHT",
-                      new_y="NEXT",
-                      border=constants.SHOW_BORDERS)
-            self.ln(1)
+        self.cell(w=60,
+                  h=8,
+                  new_x="RIGHT",
+                  new_y="LAST",
+                  border=constants.SHOW_BORDERS)
+        self.cell(w=0,
+                  h=8,
+                  text=f"{self.base_text[13]} {self.base_text[1]} {self.user_text[1]}",
+                  new_x="RIGHT",
+                  new_y="NEXT",
+                  border=constants.SHOW_BORDERS)
+        self.ln(1)
+
+        self.cell(w=60,
+                  h=8,
+                  new_x="RIGHT",
+                  new_y="LAST",
+                  border=constants.SHOW_BORDERS)
+        self.cell(w=0,
+                  h=8,
+                  text=f"{self.base_text[14]} {self.base_text[1]} {letter_date}",
+                  new_x="RIGHT",
+                  new_y="NEXT",
+                  border=constants.SHOW_BORDERS)
+        self.ln(1)
 
     def section_signature(self):
         """Add Head office status, signature area, Head office name, Head
