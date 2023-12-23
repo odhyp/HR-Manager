@@ -20,7 +20,8 @@ class DUK:
                                         skiprows=4,
                                         ))
 
-        df['JABATAN'] = df['JABATAN'].str.replace('\n', ' ').str.replace('\r', '')
+        df['JABATAN'] = df['JABATAN'].str.replace(
+            '\n', ' ').str.replace('\r', '')
 
         df.to_csv(path_or_buf=output_path,
                   sep=';',

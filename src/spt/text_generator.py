@@ -1,4 +1,5 @@
-from src.spt.utils import get_base_text_path, get_user_text_path
+from src.spt.utils import (get_base_text_path,
+                           get_user_text_path)
 
 
 class TextGenerator:
@@ -7,7 +8,6 @@ class TextGenerator:
         self.user_text = []
         self.populate_list('base_text')
         self.populate_list('user_text')
-
 
     def populate_list(self, list_type):
         if list_type == 'base_text':
