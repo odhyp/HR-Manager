@@ -1,6 +1,6 @@
 import time
 
-from src.hrm.utils import get_download_path
+from src.drivers.utils import get_download_path
 
 
 class FileManager:

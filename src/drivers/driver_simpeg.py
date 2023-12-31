@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import time
 
-from src.hrm.driver_base import DriverBase
+from src.drivers.driver_base import DriverBase
 
 WAIT_TIME = 3.5
 
