@@ -5,7 +5,7 @@ A simple to-do list to track the progress of the HR Manager.
 ### Todo
 
 - [ ] README.md
-    + [ ] Add description
+    + [x] Add description
     + [ ] Add project structure
     + [ ] Add Bahasa Indonesia
     + [ ] Add badges
@@ -15,7 +15,7 @@ A simple to-do list to track the progress of the HR Manager.
     + [ ] Add docs
     + [ ] Add tests
     + [ ] Add setup
-    + [ ] Add requirements (either as a file or in README.md)
+    + [x] Add requirements
     
 - [ ] Add command-line menu
 - [ ] Do more testing for driver class
