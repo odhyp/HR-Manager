@@ -16,12 +16,20 @@ nama_unor = "Kantor Pelayanan Pajak Daerah Daerah Istimewa Yogyakarta di Kabupat
 
 
 class DriverSimpeg(DriverBase):
-    def __init__(self, username, password):
+    def __init__(self, username: str, password: str):
+        """
+        Initialize DriverSimpeg with the provided username and password.
+
+        Args:
+        - username (str): The username for login.
+        - password (str): The password for login.
+        """
         super().__init__()
         self.username = username
         self.password = password
 
     def login(self):
+        """Perform login operation on the Simpeg website."""
         driver = self.driver
         driver.get(simpeg)
 
@@ -45,6 +53,7 @@ class DriverSimpeg(DriverBase):
             self.quit()
 
     def nominatif(self):
+        """Download 'Nominatif.xls' from the Simpeg website."""
         driver = self.driver
         driver.get(nominatif)
 
@@ -67,6 +76,7 @@ class DriverSimpeg(DriverBase):
         button_export.click()
 
     def duk(self):
+        """Download 'Daftar_Urut_Kepangkatan.xls' from the Simpeg website."""
         driver = self.driver
         driver.get(duk)
 

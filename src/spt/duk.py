@@ -4,9 +4,12 @@ from src.spt.utils import get_data_path, get_duk_path
 
 
 class DUK:
-    def convert_to_csv():
-        """Extract data from Daftar Urut Kepangkatan (DUK.xlsx) in
-        C:\\Users\\Username\\Downloads and store it as CSV in spt\\data
+    def convert_to_csv(self):
+        """
+        Convert "Daftar Urut Kepangkatan.xlsx" to CSV format.
+
+        Extracts data from DUK.xlsx in C:\\Users\\Username\\Downloads
+        and stores it as a CSV file in spt\\data.
         """
         data_path = get_data_path()
         duk_path = get_duk_path()

@@ -1,5 +1,7 @@
 from fpdf import FPDF
 
+from typing import List
+
 from src.spt import constants
 from src.spt.text_generator import TextGenerator
 
@@ -31,7 +33,7 @@ class PDF(FPDF):
                   new_y="NEXT",
                   border=constants.SHOW_BORDERS)
 
-    def section_title(self, letter_number):
+    def section_title(self, letter_number: int):
         """Add title section. 'Surat Perintah Tugas', Letter number, and
         Office Head opening paragraph.
         """
@@ -149,7 +151,7 @@ class PDF(FPDF):
 
         self.ln(8)
 
-    def section_date(self, letter_date):
+    def section_date(self, letter_date: str):
         """Add letter date.
         """
         # Section: Tanggal surat

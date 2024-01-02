@@ -13,12 +13,20 @@ rekap_prestasi = "https://presensi2.jogjaprov.go.id/lap-pres/prestasi/?menu_id=1
 
 
 class DriverPresensi(DriverBase):
-    def __init__(self, username, password):
+    def __init__(self, username: str, password: str):
+        """
+        Initialize DriverPresensi with the provided username and password.
+
+        Args:
+            username (str): The username for login.
+            password (str): The password for login.
+        """
         super().__init__()
         self.username = username
         self.password = password
 
     def login(self):
+        """Perform login operation on the Presensi website."""
         driver = self.driver
         driver.get(presensi)
 
@@ -41,7 +49,16 @@ class DriverPresensi(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
-    def rekap_presensi(self, tanggal_mulai, tanggal_selesai, jenis_laporan="detail"):
+    def rekap_presensi(self, tanggal_mulai: str, tanggal_selesai: str, jenis_laporan: str = "detail"):
+        """
+        Download 'Rekap Presensi.xls' from the Presensi website.
+
+        Args:
+        - tanggal_mulai (str): The start date for the report.
+        - tanggal_selesai (str): The end date for the report.
+        - jenis_laporan (str, optional): The type of report, either "standard" 
+          or "detail". Defaults to "detail".
+        """
         driver = self.driver
         driver.get(rekap_presensi)
 
@@ -68,7 +85,13 @@ class DriverPresensi(DriverBase):
         except (ElementClickInterceptedException, Exception):
             form_nipnama.send_keys(Keys.RETURN)
 
-    def rekap_prestasi(self, bulan):
+    def rekap_prestasi(self, bulan: str):
+        """
+        Download 'Rekap Prestasi.xls' from the Presensi website.
+
+        Args:
+        - bulan (str): The month for the report.
+        """
         driver = self.driver
         driver.get(rekap_prestasi)
 
