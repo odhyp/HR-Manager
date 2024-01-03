@@ -3,7 +3,7 @@ from src.spt.utils import (get_base_text_path,
 
 
 class TextGenerator:
-    """Extract text data from files and store it in a list
+    """Extract text from 'base_text.txt' and 'user_text.txt'
     """
     def __init__(self):
         self.base_text = []
@@ -12,8 +12,7 @@ class TextGenerator:
         self.populate_list('user_text')
 
     def populate_list(self, list_type: str):
-        """
-        Populate the specified list with text from the corresponding file.
+        """Populate the specified list with text from the corresponding file.
 
         Args:
         - list_type (str): The type of list to populate (base_text or user_text)

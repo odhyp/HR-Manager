@@ -14,8 +14,7 @@ rekap_prestasi = "https://presensi2.jogjaprov.go.id/lap-pres/prestasi/?menu_id=1
 
 class DriverPresensi(DriverBase):
     def __init__(self, username: str, password: str):
-        """
-        Initialize DriverPresensi with the provided username and password.
+        """Initialize DriverPresensi with the provided username and password.
 
         Args:
             username (str): The username for login.
@@ -26,7 +25,8 @@ class DriverPresensi(DriverBase):
         self.password = password
 
     def login(self):
-        """Perform login operation on the Presensi website."""
+        """Perform login operation on the Presensi website.
+        """
         driver = self.driver
         driver.get(presensi)
 
@@ -50,8 +50,7 @@ class DriverPresensi(DriverBase):
             self.quit()
 
     def rekap_presensi(self, tanggal_mulai: str, tanggal_selesai: str, jenis_laporan: str = "detail"):
-        """
-        Download 'Rekap Presensi.xls' from the Presensi website.
+        """Download 'Rekap Presensi.xls' from the Presensi website.
 
         Args:
         - tanggal_mulai (str): The start date for the report.
@@ -86,8 +85,7 @@ class DriverPresensi(DriverBase):
             form_nipnama.send_keys(Keys.RETURN)
 
     def rekap_prestasi(self, bulan: str):
-        """
-        Download 'Rekap Prestasi.xls' from the Presensi website.
+        """Download 'Rekap Prestasi.xls' from the Presensi website.
 
         Args:
         - bulan (str): The month for the report.

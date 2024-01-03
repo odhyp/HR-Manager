@@ -7,14 +7,10 @@ from src.drivers.utils import get_download_path
 
 class FileManager:
     def get_name_format(self, type: str) -> str:
-        """
-        Get the name format based on the specified type.
+        """Get the name format based on the specified type.
 
         Args:
         - type (str): The type of the file.
-
-        Returns:
-        str: The name format corresponding to the specified type.
         """
         name_format = {
             "presensi": "Laporan Rekap Presensi",
@@ -25,39 +21,27 @@ class FileManager:
         return name_format[type]
 
     def is_xls(self, file_name: str) -> bool:
-        """
-        Check if the file has a '.xls' extension.
+        """Check if the file has a '.xls' extension.
 
         Args:
         - file_name (str): The name of the file.
-
-        Returns:
-        bool: True if the file has '.xls' extension, False otherwise.
         """
         return file_name.endswith('.xls')
 
     def is_xlsx(self, file_name: str) -> bool:
-        """
-        Check if the file has an '.xlsx' extension.
+        """Check if the file has an '.xlsx' extension.
 
         Args:
         - file_name (str): The name of the file.
-
-        Returns:
-        bool: True if the file has '.xlsx' extension, False otherwise.
         """
         return file_name.endswith('.xlsx')
 
     def is_target_file(self, type: str, file_name: str) -> bool:
-        """
-        Check if the file matches the expected format for the specified type.
+        """Check if the file matches the expected format for the specified type.
 
         Args:
         - type (str): The type of the file.
         - file_name (str): The name of the file.
-
-        Returns:
-        bool: True if the file matches the expected format, False otherwise.
         """
         name_format = self.get_name_format(type)
         if file_name.find(name_format) == 0:
@@ -66,14 +50,10 @@ class FileManager:
             return False
 
     def is_downloaded(self, type: str) -> bool:
-        """
-        Check if a file of the specified type with '.xls' extension is downloaded.
+        """Check if a file of the specified type with '.xls' extension is downloaded.
 
         Args:
         - type (str): The type of the file.
-
-        Returns:
-        bool: True if the file is downloaded, False otherwise.
         """
         for file in get_download_path().iterdir():
             is_target_file = self.is_target_file(type, file.name)
@@ -85,15 +65,11 @@ class FileManager:
         return False
 
     def wait_for_download(self, type: str, timeout: int = 20) -> bool:
-        """
-        Wait for a file of the specified type with '.xls' extension to be downloaded.
+        """Wait for a file of the specified type with '.xls' extension to be downloaded.
 
         Args:
         - type (str): The type of the file.
         - timeout (int): The maximum time to wait in seconds. Default is 20 seconds.
-
-        Returns:
-        bool: True if the file is downloaded within the timeout, False otherwise.
         """
         while not self.is_downloaded(type) and timeout != 0:
             time.sleep(1)
@@ -101,14 +77,10 @@ class FileManager:
         return True
 
     def get_file_path(self, type: str) -> Union[Path, str]:
-        """
-        Get the path of the downloaded file for the specified type.
+        """Get the path of the downloaded file for the specified type.
 
         Args:
         - type (str): The type of the file.
-
-        Returns:
-        Union[Path, str]: The path of the file if found, or "File not found."
         """
         for file in get_download_path().iterdir():
             is_target_file = self.is_target_file(type, file.name)

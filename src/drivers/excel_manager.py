@@ -3,8 +3,7 @@ import win32com.client as win32
 
 class ExcelManager:
     def convert_xls_to_xlsx(self, file_path: str, file_format: int = 51):
-        """
-        Convert an Excel file from '.xls' to '.xlsx' format.
+        """Convert an Excel file from '.xls' to '.xlsx' format.
 
         Args:
         - file_path (str): The path to the input '.xls' file.
