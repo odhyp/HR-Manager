@@ -5,11 +5,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
+from src.constants import (URL_PRESENSI,
+                           URL_PRESENSI_REKAP_PRESENSI,
+                           URL_PRESENSI_REKAP_PRESTASI)
 from src.drivers.driver_base import DriverBase
-
-presensi = "https://presensi2.jogjaprov.go.id/"
-rekap_presensi = "https://presensi2.jogjaprov.go.id/lap-pres/rekap/?menu_id=15"
-rekap_prestasi = "https://presensi2.jogjaprov.go.id/lap-pres/prestasi/?menu_id=16"
 
 
 class DriverPresensi(DriverBase):
@@ -28,7 +27,7 @@ class DriverPresensi(DriverBase):
         """Perform login operation on the Presensi website.
         """
         driver = self.driver
-        driver.get(presensi)
+        driver.get(URL_PRESENSI)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.NAME, 'username')))
@@ -59,7 +58,7 @@ class DriverPresensi(DriverBase):
           or "detail". Defaults to "detail".
         """
         driver = self.driver
-        driver.get(rekap_presensi)
+        driver.get(URL_PRESENSI_REKAP_PRESENSI)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.NAME, 'tanggal_mulai')))
@@ -91,7 +90,7 @@ class DriverPresensi(DriverBase):
         - bulan (str): The month for the report.
         """
         driver = self.driver
-        driver.get(rekap_prestasi)
+        driver.get(URL_PRESENSI_REKAP_PRESTASI)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.NAME, 'bulan')))

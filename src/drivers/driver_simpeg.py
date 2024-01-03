@@ -5,14 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 
+from src.constants import (NAMA_UNOR,
+                           URL_SIMPEG,
+                           URL_SIMPEG_NOMINATIF,
+                           URL_SIMPEG_DUK,
+                           WAIT_TIME)
 from src.drivers.driver_base import DriverBase
-
-WAIT_TIME = 3.5
-
-simpeg = "https://simpeg2.jogjaprov.go.id/prod/"
-nominatif = "https://simpeg2.jogjaprov.go.id/prod/index.php/listing/nominatif"
-duk = "https://simpeg2.jogjaprov.go.id/prod/index.php/duk"
-nama_unor = "Kantor Pelayanan Pajak Daerah Daerah Istimewa Yogyakarta di Kabupaten Bantul"
 
 
 class DriverSimpeg(DriverBase):
@@ -31,7 +29,7 @@ class DriverSimpeg(DriverBase):
         """Perform login operation on the Simpeg website.
         """
         driver = self.driver
-        driver.get(simpeg)
+        driver.get(URL_SIMPEG)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.NAME, "username")))
@@ -56,7 +54,7 @@ class DriverSimpeg(DriverBase):
         """Download 'Nominatif.xls' from the Simpeg website.
         """
         driver = self.driver
-        driver.get(nominatif)
+        driver.get(URL_SIMPEG_NOMINATIF)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.ID, 'tb')))
@@ -68,7 +66,7 @@ class DriverSimpeg(DriverBase):
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
         time.sleep(WAIT_TIME)
-        form_nama_unor.send_keys(nama_unor)
+        form_nama_unor.send_keys(NAMA_UNOR)
         time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.ARROW_DOWN)
         time.sleep(WAIT_TIME)
@@ -80,7 +78,7 @@ class DriverSimpeg(DriverBase):
         """Download 'Daftar_Urut_Kepangkatan.xls' from the Simpeg website.
         """
         driver = self.driver
-        driver.get(duk)
+        driver.get(URL_SIMPEG_DUK)
 
         try:
             self.wait().until(EC.presence_of_element_located((By.ID, 'tb')))
@@ -92,7 +90,7 @@ class DriverSimpeg(DriverBase):
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
         time.sleep(WAIT_TIME)
-        form_nama_unor.send_keys(nama_unor)
+        form_nama_unor.send_keys(NAMA_UNOR)
         time.sleep(WAIT_TIME)
         form_nama_unor.send_keys(Keys.ARROW_DOWN)
         time.sleep(WAIT_TIME)

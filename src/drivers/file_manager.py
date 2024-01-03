@@ -2,7 +2,7 @@ import time
 from pathlib import Path
 from typing import Union
 
-from src.drivers.utils import get_download_path
+from src.utils import get_download_path
 
 
 class FileManager:

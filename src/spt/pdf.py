@@ -2,7 +2,7 @@ from typing import List
 
 from fpdf import FPDF
 
-from src.spt import constants
+from src import constants
 from src.spt.text_generator import TextGenerator
 
 
