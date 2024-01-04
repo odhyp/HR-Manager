@@ -73,7 +73,11 @@ class PDF(FPDF):
                       size=constants.FONT_SIZE)
         self.multi_cell(w=0,
                         h=8,
-                        text=f"{self.base_text[4]} {self.user_text[0]} {self.base_text[5]}",
+                        text=(
+                            f"{self.base_text[4]} "
+                            f"{self.user_text[0]} "
+                            f"{self.base_text[5]}"
+                        ),
                         new_x="LMARGIN",
                         new_y="NEXT",
                         border=constants.SHOW_BORDERS)
@@ -162,7 +166,11 @@ class PDF(FPDF):
                   border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=8,
-                  text=f"{self.base_text[13]} {self.base_text[1]} {self.user_text[1]}",
+                  text=(
+                      f"{self.base_text[13]} "
+                      f"{self.base_text[1]} "
+                      f"{self.user_text[1]}"
+                  ),
                   new_x="RIGHT",
                   new_y="NEXT",
                   border=constants.SHOW_BORDERS)
@@ -175,7 +183,11 @@ class PDF(FPDF):
                   border=constants.SHOW_BORDERS)
         self.cell(w=0,
                   h=8,
-                  text=f"{self.base_text[14]} {self.base_text[1]} {letter_date}",
+                  text=(
+                      f"{self.base_text[14]} "
+                      f"{self.base_text[1]} "
+                      f"{letter_date}"
+                  ),
                   new_x="RIGHT",
                   new_y="NEXT",
                   border=constants.SHOW_BORDERS)
@@ -254,4 +266,4 @@ class PDF(FPDF):
         self.section_signature()
 
         # Finalize
-        self.output(name='pdf_3.pdf')
+        self.output(name='examples/pdf_3.pdf')

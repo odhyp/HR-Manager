@@ -37,7 +37,8 @@ class FileManager:
         return file_name.endswith('.xlsx')
 
     def is_target_file(self, type: str, file_name: str) -> bool:
-        """Check if the file matches the expected format for the specified type.
+        """Check if the file matches the expected format for the
+        specified type.
 
         Args:
         - type (str): The type of the file.
@@ -50,7 +51,8 @@ class FileManager:
             return False
 
     def is_downloaded(self, type: str) -> bool:
-        """Check if a file of the specified type with '.xls' extension is downloaded.
+        """Check if a file of the specified type with '.xls' extension
+        is downloaded.
 
         Args:
         - type (str): The type of the file.
@@ -65,11 +67,13 @@ class FileManager:
         return False
 
     def wait_for_download(self, type: str, timeout: int = 20) -> bool:
-        """Wait for a file of the specified type with '.xls' extension to be downloaded.
+        """Wait for a file of the specified type with '.xls' extension
+        to be downloaded.
 
         Args:
         - type (str): The type of the file.
-        - timeout (int): The maximum time to wait in seconds. Default is 20 seconds.
+        - timeout (int): The maximum time to wait in seconds.
+        Default is 20 seconds.
         """
         while not self.is_downloaded(type) and timeout != 0:
             time.sleep(1)

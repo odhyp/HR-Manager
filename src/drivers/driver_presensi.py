@@ -30,7 +30,8 @@ class DriverPresensi(DriverBase):
         driver.get(URL_PRESENSI)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.NAME, 'username')))
+            self.wait().until(EC.presence_of_element_located(
+                (By.NAME, 'username')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -43,12 +44,16 @@ class DriverPresensi(DriverBase):
         form_password.send_keys(Keys.RETURN)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.ID, 'mainnav-menu')))
+            self.wait().until(EC.presence_of_element_located(
+                (By.ID, 'mainnav-menu')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
 
-    def rekap_presensi(self, tanggal_mulai: str, tanggal_selesai: str, jenis_laporan: str = "detail"):
+    def rekap_presensi(self,
+                       tanggal_mulai: str,
+                       tanggal_selesai: str,
+                       jenis_laporan: str = "detail"):
         """Download 'Rekap Presensi.xls' from the Presensi website.
 
         Args:
@@ -61,7 +66,8 @@ class DriverPresensi(DriverBase):
         driver.get(URL_PRESENSI_REKAP_PRESENSI)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.NAME, 'tanggal_mulai')))
+            self.wait().until(EC.presence_of_element_located(
+                (By.NAME, 'tanggal_mulai')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -71,7 +77,8 @@ class DriverPresensi(DriverBase):
         form_tanggal_selesai = driver.find_element(By.NAME, 'tanggal_selesai')
         dropdown_jenis_laporan = driver.find_element(By.NAME, 'jenis_lap_kode')
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
-        button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+        button_submit = driver.find_element(
+            By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
         form_tanggal_mulai.send_keys(tanggal_mulai)
         form_tanggal_selesai.send_keys(tanggal_selesai)
@@ -93,7 +100,8 @@ class DriverPresensi(DriverBase):
         driver.get(URL_PRESENSI_REKAP_PRESTASI)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.NAME, 'bulan')))
+            self.wait().until(EC.presence_of_element_located(
+                (By.NAME, 'bulan')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -101,7 +109,8 @@ class DriverPresensi(DriverBase):
         form_nipnama = driver.find_element(By.NAME, 'nipnama')
         form_bulan = driver.find_element(By.NAME, 'bulan')
         dropdown_export_mode = driver.find_element(By.ID, 'fatih')
-        button_submit = driver.find_element(By.XPATH, '//*[@id="ahsan"]/div[3]/button')
+        button_submit = driver.find_element(
+            By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
         form_bulan.send_keys(bulan)
         Select(dropdown_export_mode).select_by_value("excel")

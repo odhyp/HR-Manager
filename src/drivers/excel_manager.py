@@ -7,7 +7,8 @@ class ExcelManager:
 
         Args:
         - file_path (str): The path to the input '.xls' file.
-        - file_format (int, optional): The file format code for '.xlsx'. Default is 51.
+        - file_format (int, optional): The file format code for '.xlsx'.
+        Default is 51.
         """
         excel_app = win32.Dispatch("Excel.Application")
         excel_app.Visible = False

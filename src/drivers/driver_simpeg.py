@@ -32,7 +32,8 @@ class DriverSimpeg(DriverBase):
         driver.get(URL_SIMPEG)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.NAME, "username")))
+            self.wait().until(EC.presence_of_element_located(
+                (By.NAME, "username")))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -45,7 +46,8 @@ class DriverSimpeg(DriverBase):
         form_password.send_keys(Keys.RETURN)
 
         try:
-            self.wait().until(EC.presence_of_element_located((By.CLASS_NAME, 'sidebar-menu')))
+            self.wait().until(EC.presence_of_element_located(
+                (By.CLASS_NAME, 'sidebar-menu')))
         except NoSuchElementException:
             print(NoSuchElementException)
             self.quit()
@@ -62,7 +64,8 @@ class DriverSimpeg(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
-        form_nama_unor = driver.find_element(By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
+        form_nama_unor = driver.find_element(
+            By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
         time.sleep(WAIT_TIME)
@@ -86,7 +89,8 @@ class DriverSimpeg(DriverBase):
             print(NoSuchElementException)
             self.quit()
 
-        form_nama_unor = driver.find_element(By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
+        form_nama_unor = driver.find_element(
+            By.XPATH, '//*[@id="tb"]/span[2]/input[1]')
         button_export = driver.find_element(By.CLASS_NAME, 'btn-primary')
 
         time.sleep(WAIT_TIME)

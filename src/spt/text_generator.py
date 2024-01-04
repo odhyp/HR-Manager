@@ -15,7 +15,8 @@ class TextGenerator:
         """Populate the specified list with text from the corresponding file.
 
         Args:
-        - list_type (str): The type of list to populate (base_text or user_text)
+        - list_type (str): The type of list to populate (base_text or 
+        user_text).
         """
         if list_type == 'base_text':
             with open(get_base_text_path(), 'r') as f:
