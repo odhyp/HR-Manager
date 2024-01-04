@@ -5,9 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
-from src.constants import (URL_PRESENSI,
-                           URL_PRESENSI_REKAP_PRESENSI,
-                           URL_PRESENSI_REKAP_PRESTASI)
+from src.common.constants import (URL_PRESENSI,
+                                  URL_PRESENSI_REKAP_PRESENSI,
+                                  URL_PRESENSI_REKAP_PRESTASI)
 from src.drivers.driver_base import DriverBase
 
 

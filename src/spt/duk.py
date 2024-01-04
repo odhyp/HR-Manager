@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.utils import get_data_path, get_duk_path
+from src.common.utils import get_data_path, get_duk_path
 
 
 class DUK:

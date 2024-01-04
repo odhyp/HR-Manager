@@ -1,5 +1,5 @@
-from src.utils import (get_base_text_path,
-                       get_user_text_path)
+from src.common.utils import (get_base_text_path,
+                              get_user_text_path)
 
 
 class TextGenerator:

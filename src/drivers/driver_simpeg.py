@@ -5,11 +5,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 
-from src.constants import (NAMA_UNOR,
-                           URL_SIMPEG,
-                           URL_SIMPEG_NOMINATIF,
-                           URL_SIMPEG_DUK,
-                           WAIT_TIME)
+from src.common.constants import (NAMA_UNOR,
+                                  URL_SIMPEG,
+                                  URL_SIMPEG_NOMINATIF,
+                                  URL_SIMPEG_DUK,
+                                  WAIT_TIME)
 from src.drivers.driver_base import DriverBase
 
 
