@@ -1,3 +1,4 @@
+from openpyxl import load_workbook
 import win32com.client as win32
 
 
@@ -17,3 +18,15 @@ class ExcelManager:
         workbook.SaveAs(output_path, FileFormat=file_format)
         workbook.Close()
         excel_app.Quit()
+
+    def format_nominatif(self, file_path: str):
+        """Format 'Nominatif.xlsx' (formatting will overwrite the file)
+
+        Args:
+        - file_path (str): The path to 'Nominatif.xlsx' file.
+        """
+        wb = load_workbook(filename=file_path)
+        ws = wb.active
+        ws.delete_cols(1, 1)
+        ws.delete_rows(1, 4)
+        wb.save(filename=file_path)
