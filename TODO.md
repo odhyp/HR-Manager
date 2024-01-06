@@ -18,14 +18,12 @@ A simple to-do list to track the progress of the HR Manager.
     + [x] Add requirements
     
 - [ ] Add command-line menu
-- [ ] Do more testing for driver class
+- [x] Do more testing for driver class
 
 ### In Progress
 
-- [ ] Add excel format
+- [ ] Add excel format for nominatif, duk, presensi, and prestasi
 - [ ] Fix error-handling while using convert_xls_to_xlsx
-- [ ] Fix text import from base_text.txt and user_text.txt
-- [ ] Fix method parameter in PDF class
 - [ ] Add file_handling.py or file_operations.py to store file checker method
 
 ### Done ✓
@@ -43,3 +41,5 @@ A simple to-do list to track the progress of the HR Manager.
 - [x] Fix webdriver for being to fast before webpage fully load certain element like dropdown
 - [x] Fix webdriver to wait until file has finished downloading
 - [x] Add file manager (rename, move, etc)
+- [x] Fix text import from base_text.txt and user_text.txt
+- [x] Fix method parameter in PDF class
