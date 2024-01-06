@@ -1,5 +1,5 @@
 from openpyxl import load_workbook
-import win32com.client as win32
+from win32com.client import Dispatch
 
 
 class ExcelManager:
@@ -11,7 +11,7 @@ class ExcelManager:
         - file_format (int, optional): The file format code for '.xlsx'.
         Default is 51.
         """
-        excel_app = win32.Dispatch("Excel.Application")
+        excel_app = Dispatch("Excel.Application")
         excel_app.Visible = False
         output_path = str(file_path) + 'x'
         workbook = excel_app.Workbooks.Open(file_path)
