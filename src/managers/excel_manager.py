@@ -19,14 +19,22 @@ class ExcelManager:
         workbook.Close()
         excel_app.Quit()
 
-    def format_nominatif(self, file_path: str):
-        """Format 'Nominatif.xlsx' (formatting will overwrite the file)
+    def format_xlsx(self, file_type: str, file_path: str):
+        """Format the specified 'xlsx' file
 
         Args:
-        - file_path (str): The path to 'Nominatif.xlsx' file.
+        - file_type (str): The type of the specified 'xlsx' file. Example: 'nominatif'
+        - file_path (str): Path to the specified 'xlsx' file
         """
         wb = load_workbook(filename=file_path)
         ws = wb.active
-        ws.delete_cols(1, 1)
-        ws.delete_rows(1, 4)
+
+        if file_type == 'nominatif':
+            ws.delete_cols(1, 1)
+            ws.delete_rows(1, 4)
+        elif file_type == 'duk':
+            ws.delete_rows(1, 4)
+        else:
+            print('Invalid file type.')
+
         wb.save(filename=file_path)
