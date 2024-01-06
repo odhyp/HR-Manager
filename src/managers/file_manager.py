@@ -1,6 +1,5 @@
 import time
 from pathlib import Path
-from typing import Union
 
 from src.common.utils import get_download_path
 
@@ -80,16 +79,27 @@ class FileManager:
             timeout -= 1
         return True
 
-    def get_file_path(self, type: str) -> Union[Path, str]:
-        """Get the path of the downloaded file for the specified type.
+    def get_file_path(self, type: str, extension: str):
+        """Get the path of the downloaded file for the specified type and
+        extension.
 
         Args:
         - type (str): The type of the file.
+        - extension (str): File extension, either 'xls' or 'xlsx'
         """
         for file in get_download_path().iterdir():
             is_target_file = self.is_target_file(type, file.name)
-            if is_target_file:
-                return file
-            else:
-                continue
-        return f"File not found."
+            is_xls = self.is_xls(file.name)
+            is_xlsx = self.is_xlsx(file.name)
+
+            if extension == 'xls':
+                if is_xls and is_target_file:
+                    return file
+                else:
+                    continue
+            elif extension == 'xlsx':
+                if is_xlsx and is_target_file:
+                    return file
+                else:
+                    continue
+        return "File not found."
