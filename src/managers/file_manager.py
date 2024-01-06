@@ -92,14 +92,10 @@ class FileManager:
             is_xls = self.is_xls(file.name)
             is_xlsx = self.is_xlsx(file.name)
 
-            if extension == 'xls':
-                if is_xls and is_target_file:
-                    return file
-                else:
-                    continue
-            elif extension == 'xlsx':
-                if is_xlsx and is_target_file:
-                    return file
-                else:
-                    continue
+            if extension == 'xls' and is_xls and is_target_file:
+                return file
+            elif extension == 'xlsx' and is_xlsx and is_target_file:
+                return file
+            else:
+                continue
         return "File not found."
