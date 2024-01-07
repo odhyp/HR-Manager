@@ -99,3 +99,11 @@ class FileManager:
             else:
                 continue
         return "File not found."
+
+    def remove_file(self, file_path: str):
+        """Delete the specified file.
+
+        Args:
+        - file_path (str): The path to the file.
+        """
+        file_path.unlink(missing_ok=False)
