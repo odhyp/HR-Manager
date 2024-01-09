@@ -1,9 +1,6 @@
-from typing import List
-
 from fpdf import FPDF
 
 from src.common.constants import (SHOW_BORDERS,
-                                  PAPER_SIZE,
                                   PAPER_MARGINS,
                                   FONT_SIZE)
 from src.spt.text_generator import TextGenerator
