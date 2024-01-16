@@ -1,9 +1,8 @@
-[![My Github Profile](https://img.shields.io/badge/View-My_Profile-yellow?style=for-the-badge&logo=github)](https://github.com/odhyp)
-![Version - FPDF2](https://img.shields.io/badge/FPDF2-2.7.6-teal?style=for-the-badge&logo=python)
-![Version - openpyxl](https://img.shields.io/badge/openpyxl-3.1.2-teal?style=for-the-badge&logo=python)
-![Version - pandas](https://img.shields.io/badge/pandas-2.1.4-teal?style=for-the-badge&logo=python)
-![Version - pywin32](https://img.shields.io/badge/pywin32-306-teal?style=for-the-badge&logo=python)
-![Version - selenium](https://img.shields.io/badge/selenium-4.16.0-teal?style=for-the-badge&logo=python)
+[![Version - FPDF2](https://img.shields.io/badge/FPDF2-2.7.6-teal?style=for-the-badge&logo=python)](https://pypi.org/project/fpdf2/)
+[![Version - openpyxl](https://img.shields.io/badge/openpyxl-3.1.2-teal?style=for-the-badge&logo=python)](https://pypi.org/project/openpyxl/)
+[![Version - pandas](https://img.shields.io/badge/pandas-2.1.4-teal?style=for-the-badge&logo=python)](https://pypi.org/project/pandas/)
+[![Version - pywin32](https://img.shields.io/badge/pywin32-306-teal?style=for-the-badge&logo=python)](https://pypi.org/project/pywin32/)
+[![Version - selenium](https://img.shields.io/badge/selenium-4.16.0-teal?style=for-the-badge&logo=python)](https://pypi.org/project/selenium/)
 
 <div align="center">
     <a href="https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Yogyakarta.svg">
