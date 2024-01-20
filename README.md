@@ -4,6 +4,7 @@
 [![Version - pandas](https://img.shields.io/badge/pandas-2.1.4-teal?style=for-the-badge&logo=python)](https://pypi.org/project/pandas/)
 [![Version - pywin32](https://img.shields.io/badge/pywin32-306-teal?style=for-the-badge&logo=python)](https://pypi.org/project/pywin32/)
 [![Version - selenium](https://img.shields.io/badge/selenium-4.16.0-teal?style=for-the-badge&logo=python)](https://pypi.org/project/selenium/)
+[![Version - xls2xlsx](https://img.shields.io/badge/xls2xlsx-0.2.0-teal?style=for-the-badge&logo=python)](https://pypi.org/project/xls2xlsx/)
 
 <div align="center">
     <a href="https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Yogyakarta.svg">
