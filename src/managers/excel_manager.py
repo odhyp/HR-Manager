@@ -5,7 +5,7 @@ from xls2xlsx import XLS2XLSX
 
 class ExcelManager:
     def convert_xls(self, file_path: str, file_format: int = 51):
-        """Convert an Excel file from '.xls' to '.xlsx' format.
+        """Convert an Excel file from '.xls' to '.xlsx' format using pywin32
 
         Args:
         - file_path (str): The path to the input '.xls' file.
@@ -21,7 +21,7 @@ class ExcelManager:
         excel_app.Quit()
 
     def convert_xls2(self, file_path: str):
-        """Convert an Excel file from '.xls' to '.xlsx' format.
+        """Convert an Excel file from '.xls' to '.xlsx' format using xls2xlsx.
 
         Args:
         - file_path (str): The path to the input '.xls' file.
@@ -34,7 +34,7 @@ class ExcelManager:
         """Format the specified 'xlsx' file
 
         Args:
-        - file_type (str): The type of the specified 'xlsx' file. Example: 'nominatif'
+        - file_type (str): The type of the specified 'xlsx' file. e.g., 'duk'.
         - file_path (str): Path to the specified 'xlsx' file
         """
         wb = load_workbook(filename=file_path)
