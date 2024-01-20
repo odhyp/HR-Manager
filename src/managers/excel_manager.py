@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
 from win32com.client import Dispatch
+from xls2xlsx import XLS2XLSX
 
 
 class ExcelManager:
@@ -18,6 +19,16 @@ class ExcelManager:
         workbook.SaveAs(output_path, FileFormat=file_format)
         workbook.Close()
         excel_app.Quit()
+
+    def convert_xls2(self, file_path: str):
+        """Convert an Excel file from '.xls' to '.xlsx' format.
+
+        Args:
+        - file_path (str): The path to the input '.xls' file.
+        """
+        output_path = str(file_path) + 'x'
+        x2x = XLS2XLSX(file_path)
+        x2x.to_xlsx(output_path)
 
     def format_xlsx(self, file_type: str, file_path: str):
         """Format the specified 'xlsx' file
