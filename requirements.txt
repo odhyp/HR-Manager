@@ -3,3 +3,4 @@ openpyxl==3.1.2
 pandas==2.1.4
 pywin32==306
 selenium==4.16.0
+xls2xlsx==0.2.0
