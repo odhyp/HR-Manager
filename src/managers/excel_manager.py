@@ -3,7 +3,7 @@ from win32com.client import Dispatch
 
 
 class ExcelManager:
-    def convert_xls_to_xlsx(self, file_path: str, file_format: int = 51):
+    def convert_xls(self, file_path: str, file_format: int = 51):
         """Convert an Excel file from '.xls' to '.xlsx' format.
 
         Args:
