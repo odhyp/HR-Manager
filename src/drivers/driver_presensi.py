@@ -57,8 +57,10 @@ class DriverPresensi(DriverBase):
         """Download 'Rekap Presensi.xls' from the Presensi website.
 
         Args:
-        - tanggal_mulai (str): The start date for the report.
-        - tanggal_selesai (str): The end date for the report.
+        - start_date (str): The start date for the report.
+          Date format is 'yyyy-mm-dd'
+        - end_date (str): The end date for the report.
+          Date format is 'yyyy-mm-dd'
         - jenis_laporan (str, optional): The type of report, either "standard" 
           or "detail". Defaults to "detail".
         """
@@ -94,7 +96,7 @@ class DriverPresensi(DriverBase):
         """Download 'Rekap Prestasi.xls' from the Presensi website.
 
         Args:
-        - bulan (str): The month for the report.
+        - month (str): The month for the report. Date format is 'mm/yyyy'
         """
         driver = self.driver
         driver.get(URL_PRESENSI_REKAP_PRESTASI)
