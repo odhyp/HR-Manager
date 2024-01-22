@@ -51,8 +51,8 @@ class DriverPresensi(DriverBase):
             self.quit()
 
     def rekap_presensi(self,
-                       tanggal_mulai: str,
-                       tanggal_selesai: str,
+                       start_date: str,
+                       end_date: str,
                        jenis_laporan: str = "detail"):
         """Download 'Rekap Presensi.xls' from the Presensi website.
 
@@ -80,8 +80,8 @@ class DriverPresensi(DriverBase):
         button_submit = driver.find_element(
             By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
-        form_tanggal_mulai.send_keys(tanggal_mulai)
-        form_tanggal_selesai.send_keys(tanggal_selesai)
+        form_tanggal_mulai.send_keys(start_date)
+        form_tanggal_selesai.send_keys(end_date)
         Select(dropdown_jenis_laporan).select_by_value(jenis_laporan)
         Select(dropdown_export_mode).select_by_value("excel")
 
@@ -90,7 +90,7 @@ class DriverPresensi(DriverBase):
         except (ElementClickInterceptedException, Exception):
             form_nipnama.send_keys(Keys.RETURN)
 
-    def rekap_prestasi(self, bulan: str):
+    def rekap_prestasi(self, month: str):
         """Download 'Rekap Prestasi.xls' from the Presensi website.
 
         Args:
@@ -112,7 +112,7 @@ class DriverPresensi(DriverBase):
         button_submit = driver.find_element(
             By.XPATH, '//*[@id="ahsan"]/div[3]/button')
 
-        form_bulan.send_keys(bulan)
+        form_bulan.send_keys(month)
         Select(dropdown_export_mode).select_by_value("excel")
 
         try:
