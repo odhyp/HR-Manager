@@ -61,7 +61,7 @@ class DriverPresensi(DriverBase):
           Date format is 'yyyy-mm-dd'
         - end_date (str): The end date for the report.
           Date format is 'yyyy-mm-dd'
-        - jenis_laporan (str, optional): The type of report, either "standard" 
+        - report_type (str, optional): The type of report, either "standard" 
           or "detail". Defaults to "detail".
         """
         driver = self.driver
