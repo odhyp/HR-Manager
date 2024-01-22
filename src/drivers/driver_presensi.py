@@ -53,7 +53,7 @@ class DriverPresensi(DriverBase):
     def rekap_presensi(self,
                        start_date: str,
                        end_date: str,
-                       jenis_laporan: str = "detail"):
+                       report_type: str = "detail"):
         """Download 'Rekap Presensi.xls' from the Presensi website.
 
         Args:
@@ -84,7 +84,7 @@ class DriverPresensi(DriverBase):
 
         form_tanggal_mulai.send_keys(start_date)
         form_tanggal_selesai.send_keys(end_date)
-        Select(dropdown_jenis_laporan).select_by_value(jenis_laporan)
+        Select(dropdown_jenis_laporan).select_by_value(report_type)
         Select(dropdown_export_mode).select_by_value("excel")
 
         try:
