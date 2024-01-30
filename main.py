@@ -9,8 +9,8 @@ from src.drivers.driver_simpeg import DriverSimpeg
 from src.managers.file_manager import FileManager
 from src.managers.excel_manager import ExcelManager
 
-from src.spt.pdf import PDF
-from src.spt.text_generator import TextGenerator
+from src.pdfs.pdf_spt import PDF
+from src.pdfs.text_generator import TextGenerator
 
 
 def create_pdf():
