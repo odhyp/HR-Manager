@@ -3,7 +3,7 @@ from fpdf import FPDF
 from src.common.constants import (SHOW_BORDERS,
                                   PAPER_MARGINS,
                                   FONT_SIZE)
-from src.spt.text_generator import TextGenerator
+from src.pdfs.text_generator import TextGenerator
 
 
 class PDF(FPDF):
