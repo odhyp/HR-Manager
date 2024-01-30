@@ -1,3 +1,4 @@
+import os
 import time
 
 from src.common.constants import PAPER_SIZE
@@ -20,45 +21,6 @@ def create_pdf():
     pdf.print_sections()
 
 
-def run_drivers():
-    # Initialization
-    username = get_username()
-    password = get_password()
-    file_manager = FileManager()
-    excel_manager = ExcelManager()
-
-    # Running PRESENSI
-    presensi = DriverPresensi(username, password)
-    presensi.login()
-    presensi.rekap_presensi("2024-01-01", "2024-01-05")
-    file_manager.wait_for_download('presensi')
-    presensi.rekap_prestasi("01/2024")
-    file_manager.wait_for_download('prestasi')
-    presensi.quit()
-
-    # Running SIMPEG
-    simpeg = DriverSimpeg(username, password)
-    simpeg.login()
-    simpeg.nominatif()
-    file_manager.wait_for_download('nominatif')
-    simpeg.duk()
-    file_manager.wait_for_download('duk')
-    simpeg.quit()
-
-    # Converts 'xls' to 'xlsx'
-    def converting(file_type: str):
-        try:
-            input_file = file_manager.get_file_path(file_type)
-            excel_manager.convert_xls_to_xlsx(input_file)
-        except Exception as e:
-            print(e)
-
-    converting('presensi')
-    converting('prestasi')
-    converting('nominatif')
-    converting('duk')
-
-
 def format_excel():
     # Initialization
     file_manager = FileManager()
@@ -76,10 +38,104 @@ def format_excel():
     formatting_nominatif()
 
 
+class Drivers:
+    def __init__(self):
+        self.username = get_username()
+        self.password = get_password()
+        self.file_manager = FileManager()
+        self.excel_manager = ExcelManager()
+
+    def convert_xls(self, file_type: str):
+        try:
+            input_file = self.file_manager.get_file_path(file_type, 'xls')
+            self.excel_manager.convert_xls2(str(input_file))
+            self.file_manager.remove_file(input_file)
+        except Exception as e:
+            print(e)
+
+    def download_nominatif(self):
+        file_type = 'nominatif'
+        simpeg = DriverSimpeg(self.username, self.password)
+        simpeg.login()
+        simpeg.nominatif()
+        self.file_manager.wait_for_download(file_type)
+        simpeg.quit()
+        self.convert_xls(file_type)
+
+    def download_duk(self):
+        file_type = 'duk'
+        simpeg = DriverSimpeg(self.username, self.password)
+        simpeg.login()
+        simpeg.duk()
+        self.file_manager.wait_for_download(file_type)
+        simpeg.quit()
+        self.convert_xls(file_type)
+
+    def download_rekap_harian(self,
+                              start_date: str,
+                              end_date: str,
+                              report_type: str = "detail"):
+        file_type = 'presensi'
+        presensi = DriverPresensi(self.username, self.password)
+        presensi.login()
+        presensi.rekap_presensi(start_date, end_date, report_type)
+        self.file_manager.wait_for_download(file_type)
+        presensi.quit()
+        self.convert_xls(file_type)
+
+    def download_rekap_prestasi(self,
+                                month: str):
+        file_type = 'prestasi'
+        presensi = DriverPresensi(self.username, self.password)
+        presensi.login()
+        presensi.rekap_prestasi(month)
+        self.file_manager.wait_for_download(file_type)
+        presensi.quit()
+        self.convert_xls(file_type)
+
+
+class Menu:
+    def clear(self):
+        os.system("cls")
+
+    def menu_screen(self):
+        self.clear()
+
+        print("--- HR Manager ---\n")
+        print("[1] Download Nominatif")
+        print("[2] Download DUK")
+        print("[3] Download Rekap Harian")
+        print("[4] Download Rekap Prestasi")
+        print("[0] Exit\n")
+
+    def menu_selection(self):
+        self.clear()
+        self.menu_screen()
+        choice = str(input("> ")).lower()
+
+        if choice == '0':
+            print("Thank you")
+        elif choice == '1':
+            Drivers().download_nominatif()
+        elif choice == '2':
+            Drivers().download_duk()
+        elif choice == '3':
+            print('Date format: "yyyy-mm-dd"')
+            start_date = str(input("> Start date:\n> "))
+            end_date = str(input("> End date:\n> "))
+            Drivers().download_rekap_harian(start_date, end_date)
+        elif choice == '4':
+            print('Month format: "mm/yyyy"')
+            month = str(input("> Month:\n> "))
+            Drivers().download_rekap_prestasi(month)
+        else:
+            print("> Invalid input!")
+            input("> Press any key to continue. . .")
+            self.menu_selection()
+
+
 def main():
-    create_pdf()
-    run_drivers()
-    format_excel()
+    Menu().menu_selection()
 
 
 if __name__ == '__main__':
