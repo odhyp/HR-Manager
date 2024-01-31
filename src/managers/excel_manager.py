@@ -40,6 +40,7 @@ class ExcelManager:
         ws = wb.active
         ws.delete_cols(1, 1)
         ws.delete_rows(1, 4)
+        wb.save(filename=file_path)
 
     def format_duk(self, file_path: str):
         """Format 'DUK.xlsx'
