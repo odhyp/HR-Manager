@@ -29,23 +29,3 @@ class ExcelManager:
         output_path = str(file_path) + 'x'
         x2x = XLS2XLSX(file_path)
         x2x.to_xlsx(output_path)
-
-    def format_xlsx(self, file_type: str, file_path: str):
-        """Format the specified 'xlsx' file
-
-        Args:
-        - file_type (str): The type of the specified 'xlsx' file. e.g., 'duk'.
-        - file_path (str): Path to the specified 'xlsx' file
-        """
-        wb = load_workbook(filename=file_path)
-        ws = wb.active
-
-        if file_type == 'nominatif':
-            ws.delete_cols(1, 1)
-            ws.delete_rows(1, 4)
-        elif file_type == 'duk':
-            ws.delete_rows(1, 4)
-        else:
-            print('Invalid file type.')
-
-        wb.save(filename=file_path)
