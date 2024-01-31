@@ -29,3 +29,14 @@ class ExcelManager:
         output_path = str(file_path) + 'x'
         x2x = XLS2XLSX(file_path)
         x2x.to_xlsx(output_path)
+
+    def format_nominatif(self, file_path: str):
+        """Format 'Nominatif.xlsx'
+
+        Args:
+        - file_path (str): Path to the 'Nominatif.xlsx'
+        """
+        wb = load_workbook(filename=file_path)
+        ws = wb.active
+        ws.delete_cols(1, 1)
+        ws.delete_rows(1, 4)
