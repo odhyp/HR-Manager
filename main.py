@@ -45,14 +45,6 @@ class Drivers:
         self.file_manager = FileManager()
         self.excel_manager = ExcelManager()
 
-    def convert_xls(self, file_type: str):
-        try:
-            input_file = self.file_manager.get_file_path(file_type, 'xls')
-            self.excel_manager.convert_xls2(str(input_file))
-            self.file_manager.remove_file(input_file)
-        except Exception as e:
-            print(e)
-
     def download_nominatif(self):
         file_type = 'nominatif'
         simpeg = DriverSimpeg(self.username, self.password)
