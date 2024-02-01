@@ -47,12 +47,25 @@ class Drivers:
 
     def download_nominatif(self):
         file_type = 'nominatif'
+
+        print(f"> Downloading: {file_type}")
         simpeg = DriverSimpeg(self.username, self.password)
         simpeg.login()
         simpeg.nominatif()
         self.file_manager.wait_for_download(file_type)
         simpeg.quit()
-        self.convert_xls(file_type)
+        print("> Download success!\n")
+
+        print("> Converting xls to xlsx")
+        xls_path = self.file_manager.get_file_path(file_type, 'xls')
+        self.excel_manager.convert_xls(xls_path)
+        self.file_manager.remove_file(xls_path)
+        print("> Convert success!\n")
+
+        print(f"> Formatting {file_type}")
+        xlsx_path = self.file_manager.get_file_path(file_type, 'xlsx')
+        self.excel_manager.format_nominatif(xlsx_path)
+        print("> Format success!\n")
 
     def download_duk(self):
         file_type = 'duk'
