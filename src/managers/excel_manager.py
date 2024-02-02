@@ -52,3 +52,14 @@ class ExcelManager:
         ws = wb.active
         ws.delete_rows(1, 4)
         wb.save(filename=file_path)
+
+    def format_presensi(self, file_path: str):
+        """Format 'Presensi.xlsx'
+
+        Args:
+        - file_path (str): Path to the 'Presensi.xlsx'
+        """
+        wb = load_workbook(filename=file_path)
+        ws = wb.active
+        ws.column_dimensions['B'].hidden = True
+        wb.save(filename=file_path)
