@@ -26,11 +26,12 @@ This is a simple to-do list to track the progress of the HR Manager.
 - [ ] Add Indonesian for README.md
 - [ ] Add sample data/examples
 - [ ] Add setup
-- [ ] Add file_handling.py or file_operations.py to store file checker method
+- [ ] Add date manager
+- [ ] Add file rename method
 
 ### In Progress
 
-- [ ] Add excel format for nominatif, duk, presensi, and prestasi
+- [ ] Add excel format for presensi and prestasi
 - [ ] Fix error-handling while using convert_xls_to_xlsx
 
 ### Done ✓
@@ -55,3 +56,4 @@ This is a simple to-do list to track the progress of the HR Manager.
 - [x] Add alternative for converting 'xls' to 'xlsx'
 - [x] Add badges in README.md
 - [x] Add command-line menu
+- [x] Add excel format for nominatif and duk
