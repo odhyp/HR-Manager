@@ -63,3 +63,14 @@ class ExcelManager:
         ws = wb.active
         ws.column_dimensions['B'].hidden = True
         wb.save(filename=file_path)
+
+    def format_prestasi(self, file_path: str):
+        """Format 'Prestasi.xlsx'
+
+        Args:
+        - file_path (str): Path to the 'Presensi.xlsx'
+        """
+        wb = load_workbook(filename=file_path)
+        ws = wb.active
+        ws.column_dimensions['D'].hidden = True
+        wb.save(filename=file_path)
