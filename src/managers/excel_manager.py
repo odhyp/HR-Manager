@@ -74,3 +74,22 @@ class ExcelManager:
         ws = wb.active
         ws.column_dimensions['D'].hidden = True
         wb.save(filename=file_path)
+
+    def format_xlsx(self, file_type: str, file_path: str):
+        """Format the specified 'xlsx' file based on the file type. This method
+        wraps 'formatting' methods for 'xlsx' file.
+
+        Args:
+        - file_type (str): The type of the file
+        - file_path (str): Path to the 'xlsx' file
+        """
+        if file_type == 'nominatif':
+            self.format_nominatif(file_path=file_path)
+        elif file_type == 'duk':
+            self.format_duk(file_path=file_path)
+        elif file_type == 'presensi':
+            self.format_presensi(file_path=file_path)
+        elif file_type == 'prestasi':
+            self.format_prestasi(file_path=file_path)
+        else:
+            return f"Invalid type: {file_type} is not supported."
