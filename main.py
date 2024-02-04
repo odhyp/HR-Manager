@@ -64,7 +64,7 @@ class Drivers:
 
         print(f"> Formatting {file_type}")
         xlsx_path = self.file_manager.get_file_path(file_type, 'xlsx')
-        self.excel_manager.format_nominatif(xlsx_path)
+        self.excel_manager.format_xlsx(file_type, xlsx_path)
         print("> Format success!\n")
 
     def download_duk(self):
@@ -86,7 +86,7 @@ class Drivers:
 
         print(f"> Formatting {file_type}")
         xlsx_path = self.file_manager.get_file_path(file_type, 'xlsx')
-        self.excel_manager.format_nominatif(xlsx_path)
+        self.excel_manager.format_xlsx(file_type, xlsx_path)
         print("> Format success!\n")
 
     def download_rekap_harian(self,
@@ -111,7 +111,7 @@ class Drivers:
 
         print(f"> Formatting {file_type}")
         xlsx_path = self.file_manager.get_file_path(file_type, 'xlsx')
-        self.excel_manager.format_nominatif(xlsx_path)
+        self.excel_manager.format_xlsx(file_type, xlsx_path)
         print("> Format success!\n")
 
     def download_rekap_prestasi(self,
@@ -134,7 +134,7 @@ class Drivers:
 
         print(f"> Formatting {file_type}")
         xlsx_path = self.file_manager.get_file_path(file_type, 'xlsx')
-        self.excel_manager.format_nominatif(xlsx_path)
+        self.excel_manager.format_xlsx(file_type, xlsx_path)
         print("> Format success!\n")
 
 
