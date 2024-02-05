@@ -21,23 +21,6 @@ def create_pdf():
     pdf.print_sections()
 
 
-def format_excel():
-    # Initialization
-    file_manager = FileManager()
-    excel_manager = ExcelManager()
-
-    # Format 'Nominatif.xlsx'
-    def formatting_nominatif():
-        try:
-            input_file = file_manager.get_file_path('nominatif')
-            print(input_file)
-            excel_manager.format_nominatif(input_file)
-        except Exception as e:
-            print(e)
-
-    formatting_nominatif()
-
-
 class Drivers:
     def __init__(self):
         self.username = get_username()
