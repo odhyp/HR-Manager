@@ -1,5 +1,5 @@
 from openpyxl import load_workbook, utils
-from openpyxl.styles import Font, Color, Border, Side
+from openpyxl.styles import Font, Color, Border, Side, PatternFill
 from win32com.client import Dispatch
 from xls2xlsx import XLS2XLSX
 
@@ -62,9 +62,31 @@ class ExcelManager:
         """
         wb = load_workbook(filename=file_path)
         ws = wb.active
-        ws.column_dimensions['B'].hidden = True
+
+        # Define last row and column
         last_row = ws.max_row
         last_column = ws.max_column
+
+        # Create styles for conditional formatting
+        cf_tk = PatternFill(start_color="FF0000", fill_type="solid")
+        cf_td = PatternFill(start_color="00FF00", fill_type="solid")
+        cf_cs = PatternFill(start_color="FFFF00", fill_type="solid")
+
+        # Apply conditional formatting rule
+        for column in ws.iter_cols(min_col=4,
+                                   max_col=last_column,
+                                   min_row=2,
+                                   max_row=last_row):
+            for cell in column:
+                if cell.value is not None:
+                    if "TK" in str(cell.value):
+                        cell.fill = cf_tk
+                    elif "TD" in str(cell.value):
+                        cell.fill = cf_td
+                    elif "CS" in str(cell.value):
+                        cell.fill = cf_cs
+
+        # Add borders
         cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
         for row in ws[cell_range]:
             for cell in row:
@@ -75,6 +97,10 @@ class ExcelManager:
                     top=Side(style='thin'),
                     bottom=Side(style='thin')
                 )
+
+        # Hide column 'B'
+        ws.column_dimensions['B'].hidden = True
+
         wb.save(filename=file_path)
 
     def format_prestasi(self, file_path: str):
