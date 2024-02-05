@@ -1,4 +1,5 @@
-from openpyxl import load_workbook
+from openpyxl import load_workbook, utils
+from openpyxl.styles import Font, Color, Border, Side
 from win32com.client import Dispatch
 from xls2xlsx import XLS2XLSX
 
@@ -62,6 +63,18 @@ class ExcelManager:
         wb = load_workbook(filename=file_path)
         ws = wb.active
         ws.column_dimensions['B'].hidden = True
+        last_row = ws.max_row
+        last_column = ws.max_column
+        cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
+        for row in ws[cell_range]:
+            for cell in row:
+                cell.font = Font(color='000000', bold=False)
+                cell.border = Border(
+                    left=Side(style='thin'),
+                    right=Side(style='thin'),
+                    top=Side(style='thin'),
+                    bottom=Side(style='thin')
+                )
         wb.save(filename=file_path)
 
     def format_prestasi(self, file_path: str):
