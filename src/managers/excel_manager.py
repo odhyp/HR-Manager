@@ -68,9 +68,9 @@ class ExcelManager:
         last_column = ws.max_column
 
         # Create styles for conditional formatting
-        cf_tk = PatternFill(start_color="FF0000", fill_type="solid")
-        cf_td = PatternFill(start_color="00FF00", fill_type="solid")
-        cf_cs = PatternFill(start_color="FFFF00", fill_type="solid")
+        cf_tk = PatternFill(start_color="FF6961", fill_type="solid")
+        cf_td = PatternFill(start_color="77DD77", fill_type="solid")
+        cf_cs = PatternFill(start_color="FDFD96", fill_type="solid")
 
         # Apply conditional formatting rule
         for column in ws.iter_cols(min_col=4,
