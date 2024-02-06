@@ -68,9 +68,9 @@ class ExcelManager:
         last_column = ws.max_column
 
         # Create styles for conditional formatting
-        cf_tk = PatternFill(start_color="FF6961", fill_type="solid")
-        cf_td = PatternFill(start_color="77DD77", fill_type="solid")
-        cf_cs = PatternFill(start_color="FDFD96", fill_type="solid")
+        cf_red = PatternFill(start_color="FF6961", fill_type="solid")
+        cf_yellow = PatternFill(start_color="FDFD96", fill_type="solid")
+        cf_green = PatternFill(start_color="77DD77", fill_type="solid")
 
         # Apply conditional formatting rule
         for column in ws.iter_cols(min_col=4,
@@ -80,11 +80,11 @@ class ExcelManager:
             for cell in column:
                 if cell.value is not None:
                     if "TK" in str(cell.value):
-                        cell.fill = cf_tk
+                        cell.fill = cf_red
                     elif "TD" in str(cell.value):
-                        cell.fill = cf_td
+                        cell.fill = cf_green
                     elif "CS" in str(cell.value):
-                        cell.fill = cf_cs
+                        cell.fill = cf_yellow
 
         # Add borders
         cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
