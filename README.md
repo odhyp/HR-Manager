@@ -27,11 +27,11 @@ This is a simple to-do list to track the progress of the HR Manager.
 - [ ] Add sample data/examples
 - [ ] Add setup
 - [ ] Add date manager
-- [ ] Add file rename method
+- [ ] Add excel format for prestasi
 
 ### In Progress
 
-- [ ] Add excel format for presensi and prestasi
+- [ ] Add file rename method
 - [ ] Fix error-handling while using convert_xls_to_xlsx
 
 ### Done ✓
@@ -57,3 +57,4 @@ This is a simple to-do list to track the progress of the HR Manager.
 - [x] Add badges in README.md
 - [x] Add command-line menu
 - [x] Add excel format for nominatif and duk
+- [x] Add excel format for presensi
