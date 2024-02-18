@@ -1,5 +1,10 @@
 from openpyxl import load_workbook, utils
-from openpyxl.styles import Font, Color, Border, Side, PatternFill
+from openpyxl.styles import (Border,
+                             Color,
+                             Font,
+                             NamedStyle,
+                             PatternFill,
+                             Side)
 from win32com.client import Dispatch
 from xls2xlsx import XLS2XLSX
 
@@ -68,9 +73,23 @@ class ExcelManager:
         last_column = ws.max_column
 
         # Create styles for conditional formatting
-        cf_red = PatternFill(start_color="FF6961", fill_type="solid")
-        cf_yellow = PatternFill(start_color="FDFD96", fill_type="solid")
-        cf_green = PatternFill(start_color="77DD77", fill_type="solid")
+        cf_red = NamedStyle(
+            name='cf_red',
+            font=Font(color='9C0006'),
+            fill=PatternFill(start_color='FFC7CE', fill_type='solid')
+        )
+
+        cf_yellow = NamedStyle(
+            name='cf_yellow',
+            font=Font(color='9C6500'),
+            fill=PatternFill(start_color='FFEB9C', fill_type='solid')
+        )
+
+        cf_green = NamedStyle(
+            name='cf_green',
+            font=Font(color='006100'),
+            fill=PatternFill(start_color='C6EFCE', fill_type='solid')
+        )
 
         # Apply conditional formatting rule
         for column in ws.iter_cols(min_col=4,
@@ -79,12 +98,29 @@ class ExcelManager:
                                    max_row=last_row):
             for cell in column:
                 if cell.value is not None:
+                    # Bad
                     if "TK" in str(cell.value):
-                        cell.fill = cf_red
-                    elif "TD" in str(cell.value):
-                        cell.fill = cf_green
+                        cell.style = cf_red
+                    elif "TPD" in str(cell.value):
+                        cell.style = cf_red
+                    elif "TPP" in str(cell.value):
+                        cell.style = cf_red
+
+                    # Yellow
                     elif "CS" in str(cell.value):
-                        cell.fill = cf_yellow
+                        cell.style = cf_yellow
+                    elif "CT" in str(cell.value):
+                        cell.style = cf_yellow
+                    elif "CAP" in str(cell.value):
+                        cell.style = cf_yellow
+                    elif "CBS" in str(cell.value):
+                        cell.style = cf_yellow
+                    elif "CB" in str(cell.value):
+                        cell.style = cf_yellow
+
+                    # Green
+                    elif "TD" in str(cell.value):
+                        cell.style = cf_green
 
         # Add borders
         cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
