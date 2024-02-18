@@ -68,9 +68,15 @@ class ExcelManager:
         wb = load_workbook(filename=file_path)
         ws = wb.active
 
-        # Define last row and column
+        # Define last row, last column, and cell range
         last_row = ws.max_row
         last_column = ws.max_column
+        cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
+
+        # Set font colors to black
+        for row in ws[cell_range]:
+            for cell in row:
+                cell.font = Font(color='000000', bold=False)
 
         # Create styles for conditional formatting
         cf_red = NamedStyle(
@@ -123,10 +129,8 @@ class ExcelManager:
                         cell.style = cf_green
 
         # Add borders
-        cell_range = f"A1:{utils.get_column_letter(last_column)}{last_row}"
         for row in ws[cell_range]:
             for cell in row:
-                cell.font = Font(color='000000', bold=False)
                 cell.border = Border(
                     left=Side(style='thin'),
                     right=Side(style='thin'),
